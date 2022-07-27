@@ -86,6 +86,5 @@ Dr Tanya Ward 	Collaboration is key - visualising networks to highlight and expa
 Prof. Andreas Wicenec 	Translator for Square Kilometre Array radio-astronomy workflows
   - Potential to be horrifically complex
 
-Dr Nerida Wilson 	Data manipulation tools for seadragon community science project (Cameron Locke)
-  - Practical and complex
-  - Well documented
+Dr Nerida Wilson 	Data manipulation tools for seadragon community science project
+  -
