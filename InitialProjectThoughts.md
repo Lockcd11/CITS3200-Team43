@@ -8,18 +8,18 @@ Dr Matthew Albrecht 	Mobile application for data collection for a naturalistic d
   - Practical
   - Complex enough that we won't get bored
   
-Ms Daisy Aldam 	New Colombo Plan Funding Management Platform (Cameron Locke) (Adam McAlpine)
+Ms Daisy Aldam 	New Colombo Plan Funding Management Platform (Cameron Locke) (Adam McAlpine) (Kane Howard)
   - Simple and practical
   - Potentially too simple
   - Basically just building a database
 
-Dr Dominique Blache 	Giving a New Power to the discussion (Adam McAlpine)
+Dr Dominique Blache 	Giving a New Power to the discussion (Adam McAlpine) (Kane Howard)
   - Seems like a pretty simple web design project
 
 Dr Dominique Blache 	Making the most from long term GPS and 3 D accelerometer data (Cameron Locke) (Adam McAlpine)
   - Complex enough
 
-Ms Ruby Chan 	Event Management System (Cameron Locke) (Adam McAlpine)
+Ms Ruby Chan 	Event Management System (Cameron Locke) (Adam McAlpine) (Kane Howard)
   - Very straightforward
   - Basic web design
 
@@ -53,7 +53,7 @@ Dr Judith Katzenellenbogen 	Online database providing contemporary burden of Str
 Mr Ieuan Linck 	Visitor management application
   - 404
 
-Mrs Debra Mullan 	UWA Farm Ridgefield Research Database (Adam McAlpine)
+Mrs Debra Mullan 	UWA Farm Ridgefield Research Database (Adam McAlpine) (Kane Howard)
   - Database
 
 Mrs Debra Mullan 	UWA Farm Ridgefield Visitor Management System (Adam McAlpine)
@@ -78,7 +78,7 @@ Dr Gina Trapp 	Mapping Food Businesses to Improve Health: Developing a Food Atla
   
 Mr Kevin Vinsen 	Supporting the disabled work force with Digital Assistive Technology
 
-Dr Tanya Ward 	Research impact and reporting simple data management is key (Cameron Locke) (Adam McAlpine)
+Dr Tanya Ward 	Research impact and reporting simple data management is key (Cameron Locke) (Adam McAlpine) (Kane Howard)
   - Practical, enough to do
   - Well documented
 
