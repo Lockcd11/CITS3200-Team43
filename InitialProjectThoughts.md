@@ -1,7 +1,7 @@
 Projects on Offer (Place your name after each project you'd be happy doing, double bracket for strong preferences)
-- list thoughts on projects beneath as a list
+  - list thoughts on projects beneath as a list
 
-Dr Richard Adams 	Network Deployment of Cyberforensic Tools
+Dr Richard Adams - Network deployment of cyberforensic tools
   -
   
 Dr Matthew Albrecht 	Mobile application for data collection for a naturalistic driving study (Cameron Locke)
@@ -26,7 +26,7 @@ Ms Ruby Chan 	Event Management System (Cameron Locke)
 Ms Rowena Chant 	WACRH Student Information App
   - Apps are hell from what I hear
 
-Assoc Prof. Ullrich Ecker 	Building a Graph-Manipulation Tool for Experimental Research
+Assoc Prof. Ullrich Ecker - Building a Graph-Manipulation Tool for Experimental Research
   - 
   
 Dr Nicola Fraschini 	An app to measure classroom emotions in real time
