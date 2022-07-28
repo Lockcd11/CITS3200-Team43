@@ -82,7 +82,7 @@ Dr Tanya Ward 	Research impact and reporting simple data management is key (Came
   - Practical, enough to do
   - Well documented
 
-Dr Tanya Ward 	Collaboration is key - visualising networks to highlight and expand reach (Adam McAlpine)
+Dr Tanya Ward 	Collaboration is key - visualising networks to highlight and expand reach (Cameron Locke) (Adam McAlpine)
   - Practical and complex
   - Well documented
 
