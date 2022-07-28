@@ -39,12 +39,12 @@ Dr Tim French 	Online Competition Platform for AI Bots
 Dr Tim French 	Docker Server for Web Application Projects
 
 
-Ms Jo Huggins 	Logbook Database for 3rd year Practicum Placements
+Ms Jo Huggins 	Logbook Database for 3rd year Practicum Placements (Cameron Locke)
   - Simple Database
 
 Ms Grace Huxtable 	Aspire Race Around Campus Application<
 
-Assoc Prof Allison Imrie 	A Web-based Inventory System for Biological Samples
+Assoc Prof Allison Imrie 	A Web-based Inventory System for Biological Samples (Cameron Locke)
   - Database, spreadsheet import
 
 Dr Judith Katzenellenbogen 	Online database providing contemporary burden of Strep A infections in Australia
@@ -53,7 +53,7 @@ Dr Judith Katzenellenbogen 	Online database providing contemporary burden of Str
 Mr Ieuan Linck 	Visitor management application
   - 404
 
-Mrs Debra Mullan 	UWA Farm Ridgefield Research Database (Adam McAlpine) (Kane Howard)
+Mrs Debra Mullan 	UWA Farm Ridgefield Research Database (Cameron Locke) (Adam McAlpine) (Kane Howard)
   - Database
 
 Mrs Debra Mullan 	UWA Farm Ridgefield Visitor Management System (Adam McAlpine)
