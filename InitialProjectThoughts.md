@@ -4,7 +4,7 @@ Projects on Offer (Place your name after each project you'd be happy doing, doub
 Dr Richard Adams - Network deployment of cyberforensic tools
   -
   
-Dr Matthew Albrecht 	Mobile application for data collection for a naturalistic driving study (Cameron Locke) (Adam McAlpine)
+Dr Matthew Albrecht 	Mobile application for data collection for a naturalistic driving study (Cameron Locke) (Adam McAlpine) (maaz ahmed)
   - Practical
   - Complex enough that we won't get bored
   
@@ -36,15 +36,15 @@ Dr Tim French 	Online Competition Platform for AI Bots
   - Interesting, but potentially horiffically complicated
   -  (Adam McAlpine) Won't say yes to this, but would want it on the hgher end of no.
 
-Dr Tim French 	Docker Server for Web Application Projects
+Dr Tim French 	Docker Server for Web Application Projects (maaz ahmed)
 
 
-Ms Jo Huggins 	Logbook Database for 3rd year Practicum Placements (Cameron Locke)
+Ms Jo Huggins 	Logbook Database for 3rd year Practicum Placements
   - Simple Database
 
 Ms Grace Huxtable 	Aspire Race Around Campus Application<
 
-Assoc Prof Allison Imrie 	A Web-based Inventory System for Biological Samples (Cameron Locke)
+Assoc Prof Allison Imrie 	A Web-based Inventory System for Biological Samples
   - Database, spreadsheet import
 
 Dr Judith Katzenellenbogen 	Online database providing contemporary burden of Strep A infections in Australia
@@ -53,14 +53,14 @@ Dr Judith Katzenellenbogen 	Online database providing contemporary burden of Str
 Mr Ieuan Linck 	Visitor management application
   - 404
 
-Mrs Debra Mullan 	UWA Farm Ridgefield Research Database (Cameron Locke) (Adam McAlpine) (Kane Howard)
+Mrs Debra Mullan 	UWA Farm Ridgefield Research Database (Adam McAlpine) (Kane Howard)
   - Database
 
 Mrs Debra Mullan 	UWA Farm Ridgefield Visitor Management System (Adam McAlpine)
   - (Adam McAlpine) 2 web-based app: 1 where the QR code goes to and records the data. 2 where the manager access the data
   - From the outside not complex.
 
-Dr Mehwish Nasim 	A Social Media wargaming simulator (Cameron Locke)
+Dr Mehwish Nasim 	A Social Media wargaming simulator (Cameron Locke) (maaz ahmed)
   - Interesting, but it could get very complex
 
 Dr Mehwish Nasim 	Capturing the factors involved in hand labelling of data<
@@ -82,7 +82,7 @@ Dr Tanya Ward 	Research impact and reporting simple data management is key (Came
   - Practical, enough to do
   - Well documented
 
-Dr Tanya Ward 	Collaboration is key - visualising networks to highlight and expand reach (Cameron Locke) (Adam McAlpine)
+Dr Tanya Ward 	Collaboration is key - visualising networks to highlight and expand reach (Adam McAlpine)
   - Practical and complex
   - Well documented
 
