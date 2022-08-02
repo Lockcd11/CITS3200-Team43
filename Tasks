@@ -1,0 +1,16 @@
+# a basic list of tasks to separate the workload on commencement of development of sprint 1
+
+Back End
+- creating an algorithm to convert a database (structure TBD) into a basic network structure
+- add functionality for the application of filters to the database carrying through to the network 
+- creating functions for the (almost) real time display of the network as the user adds and removes filters
+      - giving each node margins so its a certain distance from the others
+      - methods for adding and deleting nodes (can link this to database)
+- creating a web application (flask?) to display the network
+- * possibly add functionality for the filtered network to be printed back into a list for the user to print out
+
+Front End
+- formatting the network so it has a standardised, aesthetic and simplistic look
+- adding ergonomic menu functionality to the web app for efficient user interaction
+
+      
