@@ -73,7 +73,7 @@ Our system would require internet connection only for updating the database, and
 Our system must be able to handle errors in the initial core researcher list, errors that stem from edits to the core researcher list, and errors that stem from the connections to preexisting databases. <br>
 
 Input errors should be mitigated where possible by ensuring all inputs are vetted before interacting with the database (ie. checking for valid unique researcher id, ensuring new additions to the core list are not already on the list). To avoid issues with the database, it should be easy for the user to undo recent additions or deletions to the core list, and if the database were to have issues, it should be able to revert to a previous state (explaining to the user that it has done so, and why). <br>
-In the absolute worst case, the system will be able to reboot the entire database from the list of core researchers, which will take time to be reestablished, so should be avoided.<br>
+In the absolute worst case, the system will be able to reboot the entire database from the list of core researchers, which will take time to be reestablished, so should be avoided. For this reason, the system should store a backup of the database after the initial boot.<br>
 
 Another potential issue the system may face is ballooning of the database if the network becomes too large. In the event that memory required is increasing beyond expectations, the user should be warned, and the system should cease increasing the size of the network without user permission, and adequate space.
 ##### 3.3.6 System Interfacing
@@ -86,17 +86,28 @@ What are the requirements for reliability? Must the system trap faults? Is there
 >  For this section, think about the current infrastructure of your system which will be extended for future features, incorporated or made obsolete. Consider the following:<br>
 What parts of the system are likely candidates for later modification? What sorts of modifications are expected? 
 ##### 3.3.9 Physical Environment
-> For this section, consider the physical environment in which your susbsystem will exist. Consider the following: <br>
-Where will the target equipment operate? Will the target equipment be in one or several locations? Will the environmental conditions in any way be out of the ordinary (for example, unusual temperatures, vibrations, magnetic fields, ...)? 
+
+The expected use of the system is either on a personal or work computer by one or more researchers. The different instances of the system running should not interact. 
 ##### 3.3.10 Security Issues
->  For this section, Focus on all possible security considerations. Consider the following:<br>
-Must access to any data or the system itself be controlled? Is physical security an issue? 
+There are very few security concerns with the content of the database, as it should only be storing available data (researchers, and the things they have collaborated on). The information also already exists on existing databases, our system should only make that easier to visualise.
+
+Other than that, it is important for general security practices to be followed, especially when interacting with the existing databases. It is important that incoming data is properly vetted.
+
+Physical security is not an issue.
 ##### 3.3.11 Resource Issues
 > For this section, think about data management for your subsystem. Consider the following:<br>
 How often will the system be backed up? Who will be responsible for the back up? Who is responsible for system installation? Who will be responsible for system maintenance? 
+
+A backup of the initial boot database will be stored, and updated after each boot. Beyond that, the database should be able be backed up by the user at any time. Initial installation should be as simple as providing the client with a copy of the system. The instructions provided should allow the client to easily run through initial setup, but we will also be able to provide direct support until the client is confident with the system.
+
+Continued development and support is not applicable to our current developer-client arrangement, but we are open to further collaboration if requested.
+
 #### 3.4 Constraints
-> For this section, consider all the limitations imposed on your subsystem. Consider the following: <br>
-Constraints on the programming language. Constraints on the development environment. Constraints on the use of libraries. Constraints on the use of legacy systems. 
+
+Our system should be able to run on any major OS, for this reason, the webapp and database should be run off a simple linux vm, that should work on any major OS. This should be set up in such a manner that it requires little to no input from the user.
+
+Other than that we shouldn't have any constraints on libraries or development environment.
+
 #### 3.5 System Model
 > You will have to use the UML (Unified Modelling Language) to create the models. If the CASE tools is not installed yet (Together-J), you can use Visio or Powerpoint to produce the models. For more information on the notations of UML, check out the following Rational websites - Notation and Documentation. To make your models more readable, you have to include some texts to guide the reader along the flow of your model. These text are called Navigational Text because they help to move the reader along the models. 
 ##### 3.5.1 Scenarios
