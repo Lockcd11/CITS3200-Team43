@@ -10,5 +10,6 @@
 	
 	
 Extra ideas???
-Things that need to be tested	How to test them
+
+**Things that need to be tested:**	How to test them
 - **A time update log:**	On the home page of the app, it'll have a display of all updated documents (if none is found, it'll say "No newest update" or something like                             that. And we can test for this by manually setting the timestamp to before an update was made, then updating it to make sure said data changes                           appear
