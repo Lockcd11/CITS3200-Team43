@@ -78,11 +78,14 @@ Another potential issue the system may face is ballooning of the database if the
 
 Because our system must request and recieve information from outside systems, it is critical that both the requests sent, and the information recieived is vetted. Requests must be sent in acceptable formats, which requires user inputs to be in a consistent format. This format must be clear to the user. Incoming information must be vetted before being added to the database, to ensure that it is of the type and size requested, and to ensure that it is from the correct source.
 ##### 3.3.7 Quality Issues
-> For this section, focus on the possible quality enhancement or compromises. Consider the following:<br>
-What are the requirements for reliability? Must the system trap faults? Is there a maximum acceptable time for restarting the system after a failure? What is the acceptable system downtime per 24-hour period? Is it important that the system be portable (able to move to different hardware or operating system environments)?
+
+The system should be able to function without direct oversight. The end user is not expected to troubleshoot issues with the system. After an absolutely catastrophic failure, the worst case setup time should be under 10 minutes (the maximum estimate we have for construction of a new database from the list of core researchers)
+
+The system should be capable of being set up on any operating environment, but doesn't need to be directly transferrable. A saved core researcher database should be exportable if required.
+
+The use cases for the system are not high pressure or high-risk.
 ##### 3.3.8 System Modifications
->  For this section, think about the current infrastructure of your system which will be extended for future features, incorporated or made obsolete. Consider the following:<br>
-What parts of the system are likely candidates for later modification? What sorts of modifications are expected? 
+In future the system could be modified to work with additional exterior databases, and different knowledge bases. This would primarily require changes to our interaction with the API, but our internal database would require very little editing, and the webapp should remain largely the same.
 ##### 3.3.9 Physical Environment
 
 The expected use of the system is either on a personal or work computer by one or more researchers. The different instances of the system running should not interact. 
