@@ -13,3 +13,23 @@ Extra ideas???
 
 **Things that need to be tested:**	How to test them
 - **A time update log:**	On the home page of the app, it'll have a display of all updated documents (if none is found, it'll say "No newest update" or something like                             that. And we can test for this by manually setting the timestamp to before an update was made, then updating it to make sure said data changes                           appear
+
+
+Todo:
+Match acceptance tests to Dr Wards value attributes.
+Weighted for totals,:
+$25 for Core two degrees of separation
+$20 for visualising further degrees of separation
+$10 for requesting further information on specific individuals
+$20 for adding and removing members of the core team
+$15 for filtering by specific researchers and publications
+$10 for filtering by specific topics
+
+Add tests for;
+Query API and store results into database
+
+Under how to test add stuff that confirms the program is doing what we want it to do;
+for example for the graph add a test that checks if two researchers are being displayed as proper links,
+add test to see if Query responds with expected researcher from SCOPUS ID
+add test for seeing if database for core researchers changes when you want it to
+
