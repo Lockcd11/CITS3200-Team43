@@ -30,8 +30,6 @@ Our system will be required to filter and visually represent the database as a n
 
 #### 3.3 Nonfunctional Requirements
 ##### 3.3.1 User Interface and Human Factors
->For this section, you will have to think about the interaction between the potential users and your subsystem. Consider the following:<br>
-What type of user will be using the system (expert, novice, etc.) ? Will more than one type of user be using the system? What sort of training will be required for each type of user? Is it particularly important that the system be easy to learn? Is it particularly important that users be protected from making errors? What sort of input/output devices for the human interface are available, and what are their characteristics? 
 
 Our client has expressed a lack of deep familiarity with computer infrastructure. As such, we must ensure that the client facing elements of the system are simple to explain and use.<br>
 
@@ -95,8 +93,7 @@ Other than that, it is important for general security practices to be followed, 
 
 Physical security is not an issue.
 ##### 3.3.11 Resource Issues
-> For this section, think about data management for your subsystem. Consider the following:<br>
-How often will the system be backed up? Who will be responsible for the back up? Who is responsible for system installation? Who will be responsible for system maintenance? 
+ 
 
 A backup of the initial boot database will be stored, and updated after each boot. Beyond that, the database should be able be backed up by the user at any time. Initial installation should be as simple as providing the client with a copy of the system. The instructions provided should allow the client to easily run through initial setup, but we will also be able to provide direct support until the client is confident with the system.
 
@@ -108,15 +105,3 @@ Our system should be able to run on any major OS, for this reason, the webapp an
 
 Other than that we shouldn't have any constraints on libraries or development environment.
 
-#### 3.5 System Model
-> You will have to use the UML (Unified Modelling Language) to create the models. If the CASE tools is not installed yet (Together-J), you can use Visio or Powerpoint to produce the models. For more information on the notations of UML, check out the following Rational websites - Notation and Documentation. To make your models more readable, you have to include some texts to guide the reader along the flow of your model. These text are called Navigational Text because they help to move the reader along the models. 
-##### 3.5.1 Scenarios
->  For this section, think about all the possible ways which the users will interact with your subsystem. Present them in a "story" format. 
-##### 3.5.2 Use Case Models
-###### 3.5.2.1 Actors
-###### 3.5.2.2 Use Cases
-##### 3.5.3 Object Models
-###### 3.5.3.1 Data Dictionary
-###### 3.5.3.2 Class Diagrams
-##### 3.5.4 Dynamic Models
-##### 3.5.5 User Interface - Navigational Paths and Screen Mockups
