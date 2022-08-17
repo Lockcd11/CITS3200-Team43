@@ -1,3 +1,4 @@
+WORK IN PROGRESS. WILL HOPEFULLY BE FINISHED AROUND 2PM
 Skills audit
 Weighted for totals,:
 $25 for Core two degrees of separation
