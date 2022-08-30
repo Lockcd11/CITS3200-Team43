@@ -1,0 +1,9 @@
+
+:root {
+    --primary: rgb(251, 0, 255);
+    --secondary: rgb(255, 255, 255);
+}
+
+.d-100 {
+    height: 100vh;
+}
