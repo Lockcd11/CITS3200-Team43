@@ -1,7 +1,32 @@
 
 :root {
     --primary: rgb(251, 0, 255);
-    --secondary: rgb(255, 255, 255);
+    --secondary: rgb(30, 30, 30);
+}
+
+/* Scrollbar Styling */
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #b7b7b7;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.text-primary-c {
+    color: var(--primary);
 }
 
 .d-100 {
