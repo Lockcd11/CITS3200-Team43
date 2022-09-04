@@ -20,8 +20,30 @@
 <body>
 
     <!-- Todo -->
-    <nav class="container-fluid bg-dark text-primary-c" style="min-height: 6vh;">
-            <h4>Network Mapper</h4>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow" aria-label="Navbar">
+        <div class="container-fluid px-5">
+            <a href="./index.html" class="navbar-brand">
+                <p>Network Mapper</p>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav ms-auto">
+                    <li class="nav-item pe-md-3">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item pe-md-3">
+                        <a class="nav-link" href="./researchers.html">Researchers</a>
+                    </li>
+                    <li class="nav-item px-md-3 highlight-nav">
+                        <a class="nav-link" href="./tool.html">Tool</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <section>
@@ -30,9 +52,16 @@
                 <div class="d-flex justify-content-center align-items-center text-center" style="height: 40vh;">
                     <h1 class="display-1">Team 43s<br/>Network Mapper</h1>
                 </div>
+                <div class="text-center">
+                    <button class="btn btn-primary-c">Networking Tool</button>
+                </div>
             </div>
         </div>
     </section>
+
+    <footer>
+        
+    </footer>
 
 </body>
 
