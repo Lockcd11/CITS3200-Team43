@@ -1,12 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Network Mapper | Graph Visualiser</title>
+
+    <link rel="stylesheet" href="./css/main.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
+        defer></script>
 </head>
+
 <body>
-    
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow" aria-label="Navbar">
+        <div class="container-fluid px-5">
+            <a href="./index.html" class="navbar-brand">
+                <p>Network Mapper</p>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav ms-auto">
+                    <li class="nav-item pe-md-3">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item pe-md-3">
+                        <a class="nav-link" href="./researchers.html">Researchers</a>
+                    </li>
+                    <li class="nav-item px-md-3 highlight-nav">
+                        <a class="nav-link" href="./tool.html">Tool</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="d-100 bg-dark container-fluid">
+        <div class="container">
+            <h1 class="text-light text-center pt-4">Researcher Mapping Graph</h1>
+            <div class="row">
+                <!-- FORM -->
+                <form method="GET" action="/" name="getResearcher">
+                    <div class="mb-3">
+                        <label for="InputName" class="form-label text-light">Researcher Name</label>
+                        <input type="text" class="form-control" id="InputName" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary-c">Submit</button>
+                </form>
+            </div>
+
+            <!-- GRAPH -->
+            <div class="row">
+                <svg id="svgID" width="640" height="480"></svg>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-top">
+        <div class="container-fluid bg-dark py-3" style="min-height: 10vh;">
+            <div class="container">
+                <div class="d-flex flex-column justify-content-center align-items-center" style="min-height: 10vh;">
+                    <p class="text-light">&copy; Cam, Harry, Kane, Adam, Callum, Maaz</p>
+                    <p class="text-muted">Team 43 - Network Mapper - CITS3200 - University of Western Australia</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="./js/graphing.js"></script>
 </body>
+
 </html>
