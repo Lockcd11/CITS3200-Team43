@@ -24,11 +24,9 @@ let graph = {
 //? Simulation settings
 let simulation = d3
     .forceSimulation(graph.nodes)
-    .force("link", d3.forceLink().id(function (d) {
+    .force("link", d3.forceLink(graph.links).id(function (d) {
         return d.name;
-    })
-    .links(graph.links)
-    )
+    }))
     .force("charge", d3.forceManyBody().strength(-300))
     .force("center", d3.forceCenter(width / 2, height / 2))
     .on("tick", ticked);
@@ -60,7 +58,19 @@ let node = svg
     })
     .attr("stroke", "yellow");
 
+//? Text elements
+let text = svg.append("g")
+.selectAll("text")
+.data(graph.nodes)
+.enter()
+.append("text")
+.text(d => d.name)
+
 function ticked() {
+
+    text.attr("x", d => d.x);
+    text.attr("y", d => d.y);
+
     link.attr("x1", function (d) {
         return d.source.x;
     })
@@ -81,3 +91,21 @@ function ticked() {
             return d.y;
         });
 }
+
+// Todo: Figure out how to drag nodes (not important really)
+// function dragstarted(d) {
+//     simulation.alphaTarget(0.3).restart();
+//     d.fx = d3.event.x;
+//     d.fy = d3.event.y;
+// }
+
+// function dragged(d) {
+//     d.fx = d3.event.x;
+//     d.fy = d3.event.y;
+// }
+
+// function dragended(d) {
+//     simulation.alphaTarget(0);
+//     d.fx = null;
+//     d.fy = null;
+// }
