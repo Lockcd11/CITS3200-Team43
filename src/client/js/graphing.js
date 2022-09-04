@@ -27,8 +27,8 @@ let simulation = d3
     .force("link", d3.forceLink(graph.links).id(function (d) {
         return d.name;
     }))
-    .force("charge", d3.forceManyBody().strength(-300))
-    .force("center", d3.forceCenter(width / 2, height / 2))
+    .force("charge", d3.forceManyBody().strength(-5000))
+    .force("center", d3.forceCenter(width / 1.2, height / 2))
     .on("tick", ticked);
 
 //? Link Elements
@@ -40,9 +40,9 @@ let link = svg
     .enter()
     .append("line")
     .attr("stroke-width", function (d) {
-        return 4;
+        return 5;
     })
-    .style("stroke", "pink");
+    .style("stroke", "black");
 
 //? Node Elements
 let node = svg
@@ -52,11 +52,11 @@ let node = svg
     .data(graph.nodes)
     .enter()
     .append("circle")
-    .attr("r", 6)
+    .attr("r", 10)
     .attr("fill", function (d) {
-        return "orange"
+        return "magenta"
     })
-    .attr("stroke", "yellow");
+    .attr("stroke", "black");
 
 //? Text elements
 let text = svg.append("g")
@@ -66,6 +66,7 @@ let text = svg.append("g")
 .append("text")
 .text(d => d.name)
 .attr("fill", "white")
+.attr("font-size", "larger")
 
 function ticked() {
 
