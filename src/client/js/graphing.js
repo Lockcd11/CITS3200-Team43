@@ -65,6 +65,7 @@ let text = svg.append("g")
 .enter()
 .append("text")
 .text(d => d.name)
+.attr("fill", "white")
 
 function ticked() {
 
