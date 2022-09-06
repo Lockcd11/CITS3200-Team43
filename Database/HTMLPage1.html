@@ -1,0 +1,55 @@
+﻿<html>
+    <head>
+        <title>DataViz</title>
+        <style type="text/css">
+            #viz {
+                width: 900px;
+                height: 700px;
+            }
+        </style>
+        <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
+    </head>
+    <body onload="draw()">
+        <p>Hey</p>
+        <div id="viz"></div>
+        <script type="text/javascript">
+
+            let neoViz;
+
+            function draw() {
+                const config = {
+                    containerId: "viz",
+                    neo4j: {
+                        serverUrl: "bolt://localhost:7687",
+                        serverUser: "neo4j",
+                        serverPassword: "group43"
+                    },
+                    labels: {
+                        Researcher: {
+                            label: "name",
+                            value: "id",
+                            group: "layerOfKnown"
+                        },
+                        Project: {
+                            label: "projectCategory",
+                            value: "id",
+                            group: "projectCategory"
+                        }
+                    },
+                    relationships: {
+                        WORKED_WITH: {
+                            value: "numberOfTimes"
+                        },
+                        WORKED_ON: {
+                            value: "publicationYear"
+                        }
+                    },
+                    initialCypher: "MATCH (n)-[r:WORKED_WITH]->(m)-[k:WORKED_ON]->(h) RETURN n,r,m,k,h"
+                };
+
+                neoViz = new NeoVis.default(config);
+                neoViz.render();
+            }
+        </script>
+    </body>
+</html>
