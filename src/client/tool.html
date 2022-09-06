@@ -15,9 +15,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
         defer></script>
+
+    <!-- NEOVIZ -->
+    <style type="text/css">
+        #viz {
+            width: 900px;
+            height: 700px;
+        }
+    </style>
+    <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
 </head>
 
-<body>
+<body onload="draw()">
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow" aria-label="Navbar">
         <div class="container-fluid px-5">
@@ -59,10 +68,15 @@
                 </form>
             </div>
 
-            <!-- GRAPH -->
+            <!-- D3.JS GRAPH -->
             <div class="row pt-5">
                 <svg id="svgID" width="640" height="480"></svg>
             </div>
+
+            <!-- NEOVIS GRAPH -->
+            <div class="row pt-5">
+                <div id="viz"></div>
+            </div>  
         </div>
     </section>
 
@@ -78,6 +92,7 @@
     </footer>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="./js/neovis-graph.js"></script>
     <script src="./js/graphing.js"></script>
 </body>
 
