@@ -1,0 +1,46 @@
+LOAD CSV WITH HEADERS FROM 'file:///researcher.csv' AS row
+CREATE (researcher:Researcher {
+    id: row.researcherID,
+    name:row.researcherName,
+    scopusID: row.scopusID,
+    layerOfKnown: row.layerOfKnown })
+
+LOAD CSV WITH HEADERS FROM 'file:///project.csv' AS row
+CREATE (project:Project {
+    id: row.projectID,
+    projectCategory:row.projectCategory,
+    publicationYear: row.publicationYear })
+
+
+--------------------------------------------------------------------------------------------------------
+
+LOAD CSV WITH HEADERS FROM 'file:///worked_with.csv' AS row
+ MATCH
+ (a:Researcher),
+ (b:Researcher) 
+ WHERE row.researcherOne = a.id AND row.researcherTwo = b.id
+ CREATE (a)-[r:WORKED_WITH {numberOfTimes: row.numberOfTimes}]->(b)
+
+LOAD CSV WITH HEADERS FROM 'file:///worked_on.csv' AS row
+ MATCH
+ (a:Researcher),
+ (b:Project) 
+ WHERE row.researcher = a.id AND row.project = b.id
+ CREATE (a)-[r:WORKED_ON]->(b)
+
+----------------------------------------------------------------------------------------------------------
+
+MATCH (n:Researcher)
+WHERE n.layerOfKnown = "1"
+    SET n:CoreResearcher
+RETURN n
+
+MATCH (n:Researcher)
+WHERE n.layerOfKnown = "2"
+    SET n:FirstDegree
+RETURN n
+
+MATCH (n:Researcher)
+WHERE n.layerOfKnown = "3"
+    SET n:SecondDegree
+RETURN n
