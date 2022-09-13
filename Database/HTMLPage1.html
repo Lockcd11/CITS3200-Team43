@@ -1,55 +1,72 @@
 ﻿<html>
-    <head>
-        <title>DataViz</title>
-        <style type="text/css">
-            #viz {
-                width: 900px;
-                height: 700px;
-            }
-        </style>
-        <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
-    </head>
-    <body onload="draw()">
-        <p>Hey</p>
-        <div id="viz"></div>
-        <script type="text/javascript">
-
-            let neoViz;
-
-            function draw() {
-                const config = {
-                    containerId: "viz",
-                    neo4j: {
-                        serverUrl: "bolt://localhost:7687",
-                        serverUser: "neo4j",
-                        serverPassword: "group43"
-                    },
-                    labels: {
-                        Researcher: {
-                            label: "name",
-                            value: "id",
-                            group: "layerOfKnown"
-                        },
-                        Project: {
-                            label: "projectCategory",
-                            value: "id",
-                            group: "projectCategory"
-                        }
-                    },
-                    relationships: {
-                        WORKED_WITH: {
-                            value: "numberOfTimes"
-                        },
-                        WORKED_ON: {
-                            value: "publicationYear"
-                        }
-                    },
-                    initialCypher: "MATCH (n)-[r:WORKED_WITH]->(m)-[k:WORKED_ON]->(h) RETURN n,r,m,k,h"
-                };
-
-                neoViz = new NeoVis.default(config);
-                neoViz.render();
-            }
-        </script>
-    </body>
+<head>
+    <title>DataViz</title>
+    <style type="text/css">
+        #viz {
+            width: 900px;
+            height: 700px;
+        }
+    </style>
+    <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
+    <script src="neovs.js"></script>
+</head>
+<body onload="draw()">
+    <table id="researcher" hidden>
+        <tr>
+            <td>Name</td>
+            <td id="researcherName"></td>
+        </tr>
+        <tr>
+            <td>Scopus ID</td>
+            <td id="scopusID"></td>
+        </tr>
+        <tr>
+            <td>Layer Of Known</td>
+            <td id="layerOfKnown"></td>
+        </tr>
+    </table>
+    <table id="project" hidden>
+        <tr>
+            <td>Category</td>
+            <td id="projectCategory"></td>
+        </tr>
+        <tr>
+            <td>Year of Publication</td>
+            <td id="publicationYear"></td>
+        </tr>
+    </table>
+    <table id="relationShip_WORKED_WITH" hidden>
+        <tr>
+            <td>Relationship</td>
+            <td>Worked With</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td id="r1"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td id="r2"></td>
+        </tr>
+        <tr>
+            <td>Times worked together</td>
+            <td id="workedWith"></td>
+        </tr>
+    </table>
+    <table id="relationShip_WORKED_ON" hidden>
+        <tr>
+            <td>Relationship</td>
+            <td>Worked On</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td id="r"></td>
+        </tr>
+        <tr>
+            <td>Name of Project</td>
+            <td id="projectName"></td>
+        </tr>
+    </table>
+    <div id="viz"></div>
+</body>
 </html>
