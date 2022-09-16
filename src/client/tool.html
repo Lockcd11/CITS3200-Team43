@@ -45,7 +45,7 @@
         </div>
     </nav>
 
-    <section class="d-100 bg-dark container-fluid">
+    <section class="bg-dark container-fluid">
         <div class="container">
             <h1 class="text-light text-center pt-4">Researcher Mapping Graph</h1>
             <div class="row">
@@ -59,7 +59,10 @@
                 </form>
             </div>
             <section>
-                <table id="researcher" hidden>
+                <div id="viz"></div>
+            </section>
+            <div>
+                <table id="researcher" class="table table-light">
                     <tr>
                         <td>Name</td>
                         <td id="researcherName"></td>
@@ -73,7 +76,7 @@
                         <td id="layerOfKnown"></td>
                     </tr>
                 </table>
-                <table id="project" hidden>
+                <table id="project" class="table table-light">
                     <tr>
                         <td>Category</td>
                         <td id="projectCategory"></td>
@@ -83,7 +86,7 @@
                         <td id="publicationYear"></td>
                     </tr>
                 </table>
-                <table id="relationShip_WORKED_WITH" hidden>
+                <table id="relationShip_WORKED_WITH" class="table table-light">
                     <tr>
                         <td>Relationship</td>
                         <td>Worked With</td>
@@ -101,7 +104,7 @@
                         <td id="workedWith"></td>
                     </tr>
                 </table>
-                <table id="relationShip_WORKED_ON" hidden>
+                <table id="relationShip_WORKED_ON" class="table table-light">
                     <tr>
                         <td>Relationship</td>
                         <td>Worked On</td>
@@ -115,8 +118,7 @@
                         <td id="projectName"></td>
                     </tr>
                 </table>
-                <div id="viz"></div>
-            </section>
+            </div>
         </div>
     </section>
 
