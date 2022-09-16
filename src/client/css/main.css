@@ -54,3 +54,8 @@
   border-radius: 10px;
   background-color: var(--secondary);
 }
+
+#viz {
+  width: 900px;
+  height: 700px;
+}

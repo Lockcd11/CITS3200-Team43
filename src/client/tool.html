@@ -17,7 +17,7 @@
         defer></script>
 </head>
 
-<body>
+<body onload="draw()">
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow" aria-label="Navbar">
         <div class="container-fluid px-5">
@@ -58,14 +58,69 @@
                     <button type="submit" class="btn btn-primary-c">Submit</button>
                 </form>
             </div>
-
-            <!-- GRAPH -->
-            <div class="row pt-5">
-                <svg id="svgID" width="640" height="480"></svg>
-            </div>
+            <section>
+                <table id="researcher" hidden>
+                    <tr>
+                        <td>Name</td>
+                        <td id="researcherName"></td>
+                    </tr>
+                    <tr>
+                        <td>Scopus ID</td>
+                        <td id="scopusID"></td>
+                    </tr>
+                    <tr>
+                        <td>Layer Of Known</td>
+                        <td id="layerOfKnown"></td>
+                    </tr>
+                </table>
+                <table id="project" hidden>
+                    <tr>
+                        <td>Category</td>
+                        <td id="projectCategory"></td>
+                    </tr>
+                    <tr>
+                        <td>Year of Publication</td>
+                        <td id="publicationYear"></td>
+                    </tr>
+                </table>
+                <table id="relationShip_WORKED_WITH" hidden>
+                    <tr>
+                        <td>Relationship</td>
+                        <td>Worked With</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td id="r1"></td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td id="r2"></td>
+                    </tr>
+                    <tr>
+                        <td>Times worked together</td>
+                        <td id="workedWith"></td>
+                    </tr>
+                </table>
+                <table id="relationShip_WORKED_ON" hidden>
+                    <tr>
+                        <td>Relationship</td>
+                        <td>Worked On</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td id="r"></td>
+                    </tr>
+                    <tr>
+                        <td>Name of Project</td>
+                        <td id="projectName"></td>
+                    </tr>
+                </table>
+                <div id="viz"></div>
+            </section>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="border-top">
         <div class="container-fluid bg-dark py-3" style="min-height: 10vh;">
             <div class="container">
@@ -77,6 +132,8 @@
         </div>
     </footer>
 
+    <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
+    <script src="./js/neovs.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="./js/graphing.js"></script>
 </body>
