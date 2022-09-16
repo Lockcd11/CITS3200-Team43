@@ -58,4 +58,5 @@
 #viz {
   width: 900px;
   height: 700px;
+  border: 1px solid rgb(255, 255, 255);
 }
