@@ -1,72 +1,61 @@
 from pybliometrics.scopus.utils import config
 from pybliometrics.scopus import AuthorRetrieval
 from pybliometrics.scopus import AbstractRetrieval
+from sortedcontainers import SortedSet
 import pandas as pd
+import csv
 
 depth=0
-coreTeam = list()
-researcherQueue = []
-researcherQueue.append(36641521800)
-researcherQueue.append(6602103486)
-publicationQueue = []
-researchers = {
-}
+coreTeam = [57219019970, 57216501896, 57210644282, 57209335346, 57208166414, 57221013971, 57203278857, 57195488227, 57004266000, 56306019600, 55659418600, 53263517200, 36641521800, 35409967700, 7402517928,7401755590, 7201664962, 7102860769, 7003410036, 6603302385, 6603217918, 6602103486]
 
-publications = {
-}
+researcherQueue = []
+publicationQueue = []
+researchers = SortedSet()
+publications = SortedSet()
+relationships = SortedSet()
+names=0
 
 for x in coreTeam:
-    researcherQueue.append(coreTeam[x])
-
-while len(researcherQueue)!=0:
-    thisResearcher=researcherQueue[0]
-    researcherQueue.pop(0)
-    if thisResearcher not in researchers.keys():
-        researchers.update({thisResearcher:set()})
+    researcherQueue.append(x)
+while depth < 2:
+    while len(researcherQueue)!=0:
+        print(len(researcherQueue))
+        thisResearcher=researcherQueue[0]
+        researcherQueue.pop(0)
         researcherFile = AuthorRetrieval(thisResearcher)
+        print(researcherFile.get_key_reset_time())
         thisAuthorPublications = pd.DataFrame(researcherFile.get_document_eids())
         for x in thisAuthorPublications[0]:
-            researchers[thisResearcher].add(x)
-            if x not in publications.keys():
+            if x not in publications:
                 publicationQueue.append(x)
-                publications.update({x:set()})
-            publications[x]=(publications.get(x).add(thisResearcher))
-    
-while len(publicationQueue)!=0:
-    thisPublication=publicationQueue[0]
-    publicationQueue.pop(0)
-    thisPublicationAuthors = pd.DataFrame(AbstractRetrieval(thisPublication).authors)
-    for x in thisPublicationAuthors.iloc[:,0]:
-        if publications.get(thisPublication)==None:
-            publications.update({thisPublication:set()})
-        publications[thisPublication].add(x)
-        if (x not in researchers.keys()) or (researchers.get(x)==None):
-            researcherQueue.append(x)
-            researchers.update({x:set()})
-            researchers[x].add(thisPublication)
-        researchers[x]=(researchers.get(x).add(thisPublication))
-
-print("Researchers", researchers)
-print("Publications", publications)
-
-
-
-
-    
-
-# CoreResearcher = AuthorRetrieval(36641521800) #retrieve Dr Ward
-# publications = pd.DataFrame(CoreResearcher.get_document_eids()) #retrieve all publications by Dr Ward
-# pubEids = [] #array of eIDs of Dr Ward's publications
-# for x in publications[0]: #For each publication of dr ward
-#     if x not in pubEids: #If we haven't already checked it
-#         pubEids.append(x) #Add it to the list
-# abstract = AbstractRetrieval(pubEids[0]) #for the first of Dr Ward's publications
-# auidList = pd.DataFrame(abstract.authors) #Get it's info
-# firstdeg = [] #Initialise list of first degree contacts
-# for x in auidList[0]: #For each contact
-#     if x not in firstdeg: #If they're not already in our lists
-#         firstdeg.append(x) #Add them to the list
-
-# #s = AuthorSearch('AU-ID(36641521800)')
-# #print(s)
-# #print(s.authors[0])
+            publications.add(x)
+    print(len(publications))
+    while len(publicationQueue)!=0:
+        thisPublication=publicationQueue[0]
+        publicationQueue.pop(0)
+        thisPublicationAuthors = None
+        thisPublicationAuthors = pd.DataFrame(AbstractRetrieval(thisPublication).authors)
+        if len(thisPublicationAuthors.iloc[:,0])<50:
+            for x in thisPublicationAuthors.iloc[:,0]:
+                relationships.add((thisPublication, x))
+                if depth !=2:
+                    if x not in researchers:
+                        researcherQueue.append(x)
+                    researchers.add(x)
+    depth=depth+1
+    print('depthup')
+with open('relationships.csv', 'w', newline='') as out:
+    csv_out=csv.writer(out)
+    csv_out.writerow(['publication eid', 'author id'])
+    for x in relationships:
+        csv_out.writerow(x)
+with open('researchers.csv', 'w') as out:
+    csv_out=csv.writer(out)
+    csv_out.writerow(['researcher'])
+    for x in researchers:
+        csv_out.writerow([str(x)])
+with open('publications.csv', 'w', newline='') as out:
+    csv_out=csv.writer(out)
+    csv_out.writerow(['publication'])
+    for x in publications:
+        csv_out.writerow([x])
