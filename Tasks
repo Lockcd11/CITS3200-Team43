@@ -1,16 +1,12 @@
 # a basic list of tasks to separate the workload on commencement of development of sprint 1
 
-Back End
-- creating an algorithm to convert a database (structure TBD) into a basic network structure
-- add functionality for the application of filters to the database carrying through to the network 
-- creating functions for the (almost) real time display of the network as the user adds and removes filters
-      - giving each node margins so its a certain distance from the others
-      - methods for adding and deleting nodes (can link this to database)
-- creating a web application (flask?) to display the network
-- * possibly add functionality for the filtered network to be printed back into a list for the user to print out
+A List of Front End stuff to do:
 
-Front End
-- formatting the network so it has a standardised, aesthetic and simplistic look
-- adding ergonomic menu functionality to the web app for efficient user interaction
+1. set the colours of the nodes nicely based on if the node is 1. a core researcher, 2. a first or second degree researcher, 3. a subject
+2. have the core researchers spawn in the average centre position on the screen
+3. give the website a bit more formatting and universality, (a set colour scheme, shared fonts, buttons clean and organised, pages all link together seamlessly)
+4. have the 'physics' of the neo4j network better display the graph when interacted with (1. bigger margins between nodes so nothing overlaps, 2. prevent edges overlapping?)
+5. have the graph use the same fonts/bevels as the rest of the website
+6. longer edges and more space between nodes
 
       

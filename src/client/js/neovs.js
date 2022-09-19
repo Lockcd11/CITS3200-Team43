@@ -35,18 +35,28 @@ function draw() {
         labels: {
             Researcher: {
                 label: "name",
-                value: "id",
-                group: "layerOfKnown"
+                value: "1",
+                group: "layerOfKnown",
+                font: "arial"
             },
             Project: {
                 label: "projectCategory",
-                value: "id",
+                value: "1",
                 group: "projectCategory"
+            }
+        },
+        visConfig: {
+            nodes: {
+                shape: 'circle',
+                borderWidth: '1',
+                color: 'red',
+                colorBorder: 'white',
+                colorBackground: 'red'
             }
         },
         relationships: {
             WORKED_WITH: {
-                value: "numberOfTimes"
+                value: "20"
             },
             WORKED_ON: {
             }
