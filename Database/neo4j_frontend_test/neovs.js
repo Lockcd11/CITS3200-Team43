@@ -47,8 +47,8 @@ function draw() {
             WORKED_ON: {
             }
         },
-        //initialCypher: "MATCH (n)-[r:WORKED_WITH]->(m)-[k:WORKED_ON]->(h)RETURN n,r,m,k,h"
-        initialCypher: "MATCH (n) RETURN n"
+        //initialCypher: "MATCH (n)-[r:WORKED_WITH]->(m)-[k:WORKED_ON]->(h)RETURN *"
+        initialCypher: "MATCH (n), (j)-[r]->(m) RETURN *"
     };
 
     neoViz = new NeoVis.default(config);
