@@ -21,9 +21,8 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow" aria-label="Navbar">
         <div class="container-fluid px-5">
-            <a href="./index.html" class="navbar-brand">
-                <p>Network Mapper</p>
-            </a>
+            <img src="./img/blackbglogosmall.png" alt="logo" width="50" height="50">
+            <a href="./index.html" class="navbar-brand ps-md-3">Network Mapper</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
                 aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,14 +30,14 @@
 
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav ms-auto">
-                    <li class="nav-item pe-md-3">
-                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    <li class="nav-item px-md-3">
+                        <a class="nav-link" aria-current="page" href="./index.html">Home</a>
                     </li>
-                    <li class="nav-item pe-md-3">
+                    <li class="nav-item px-md-3">
                         <a class="nav-link" href="./researchers.html">Researchers</a>
                     </li>
-                    <li class="nav-item px-md-3 highlight-nav">
-                        <a class="nav-link" href="./tool.html">Tool</a>
+                    <li class="nav-item px-md-3">
+                        <a class="nav-link active" href="./tool.html">Tool</a>
                     </li>
                 </ul>
             </div>
@@ -64,65 +63,6 @@
                 <div id="viz"></div>
             </section>
 
-            <!-- Table Display -->
-            <div>
-                <table id="researcher" class="table table-light">
-                    <tr>
-                        <td>Name</td>
-                        <td id="researcherName"></td>
-                    </tr>
-                    <tr>
-                        <td>Scopus ID</td>
-                        <td id="scopusID"></td>
-                    </tr>   
-                    <tr>
-                        <td>Layer Of Known</td>
-                        <td id="layerOfKnown"></td>
-                    </tr>
-                </table>
-                <table id="project" class="table table-light">
-                    <tr>
-                        <td>Category</td>
-                        <td id="projectCategory"></td>
-                    </tr>
-                    <tr>
-                        <td>Year of Publication</td>
-                        <td id="publicationYear"></td>
-                    </tr>
-                </table>
-                <table id="relationShip_WORKED_WITH" class="table table-light">
-                    <tr>
-                        <td>Relationship</td>
-                        <td>Worked With</td>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td id="r1"></td>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td id="r2"></td>
-                    </tr>
-                    <tr>
-                        <td>Times worked together</td>
-                        <td id="workedWith"></td>
-                    </tr>
-                </table>
-                <table id="relationShip_WORKED_ON" class="table table-light">
-                    <tr>
-                        <td>Relationship</td>
-                        <td>Worked On</td>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td id="r"></td>
-                    </tr>
-                    <tr>
-                        <td>Name of Project</td>
-                        <td id="projectName"></td>
-                    </tr>
-                </table>
-            </div>
         </div>
     </section>
 

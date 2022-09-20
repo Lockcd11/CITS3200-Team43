@@ -1,6 +1,6 @@
 
 :root {
-    --primary: rgb(251, 0, 255);
+    --primary: rgb(222, 230, 230);
     --secondary: rgb(58, 58, 58);
 }
 
@@ -35,6 +35,7 @@
 
 .btn-primary-c {
   background-color: var(--primary) !important;
+  color: var(--secondary);
 }
 
 .hero-img {
@@ -43,11 +44,11 @@
     background-size: cover;
 }
 
-.highlight-nav {
+/* .highlight-nav {
   border: solid 1px #000 !important;
   border-radius: 10px;
   background-color: var(--primary);
-}
+} */
 
 .highlight-nav:hover {
   border: solid 1px #000 !important;
@@ -56,6 +57,8 @@
 }
 
 #viz {
-  width: 900px;
+  width: var(device-width);
   height: 700px;
+  background-color: #555;
+  border-radius: 0.8%;
 }

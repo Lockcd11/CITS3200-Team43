@@ -40,9 +40,14 @@ function draw() {
                 group: "projectCategory"
             }
         },
+        visConfig: {
+            nodes: {
+                shape: 'square',
+            }
+        },
         relationships: {
             WORKED_WITH: {
-                value: "numberOfTimes"
+                group: "name"
             },
             WORKED_ON: {
             }

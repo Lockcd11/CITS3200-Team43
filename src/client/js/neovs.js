@@ -24,6 +24,8 @@ function search() {
 
 }
 
+
+
 function draw() {
     const config = {
         containerId: "viz",
@@ -32,28 +34,32 @@ function draw() {
             serverUser: "neo4j",
             serverPassword: "group43"
         },
+
         labels: {
             Researcher: {
-                label: "name",
-                value: "1",
-                group: "layerOfKnown",
-                font: "arial"
+                label: 'name',
+                group: 'layerOfKnown',
             },
             Project: {
-                label: "projectCategory",
-                value: "1",
-                group: "projectCategory"
-            }
+                label: 'projectCategory',
+                group: 'projectCategory'
+            },
         },
-        visConfig: {
-            nodes: {
-                shape: 'circle',
-                borderWidth: '1',
-                color: 'red',
-                colorBorder: 'white',
-                colorBackground: 'red'
-            }
-        },
+        // }
+            // Core_Researcher: {
+            //     label: 'name',
+            //     group: 'core_researcher'
+            // },
+            // Researcher: {
+            //     label: "name",
+            //     group: ""
+            // },
+            // Project: {
+            //     label: "projectCategory",
+            //     group: "project"
+            // },
+        //},
+
         relationships: {
             WORKED_WITH: {
                 value: "20"
