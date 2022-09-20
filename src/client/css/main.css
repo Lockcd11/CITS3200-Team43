@@ -34,15 +34,15 @@
 }
 
 .btn-primary-c {
-  background-color: var(--primary) !important;
-  color: var(--secondary);
+  background-color: var(--secondary) !important;
+  color: var(--primary) !important;
 }
-
+/* 
 .hero-img {
     background-image: url("../img/hero-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 /* .highlight-nav {
   border: solid 1px #000 !important;
@@ -58,7 +58,8 @@
 
 #viz {
   width: var(device-width);
-  height: 700px;
-  background-color: #555;
-  border-radius: 0.8%;
+  height: 550px;
+  background-color: var(--primary);
+  border-radius: 10px;
+  border: 4px var(--secondary) solid;
 }

@@ -24,6 +24,18 @@ function search() {
 
 }
 
+var options = {
+    "physics": {
+        "barnesHut": {
+            "sprintConstant": 0,
+            "avoidOverlap": 0.2
+        }
+    },
+    "nodes": {
+        "shape": "square"
+    }
+}
+
 function draw() {
     const config = {
         containerId: "viz",
@@ -42,6 +54,11 @@ function draw() {
                 label: "projectCategory",
                 value: "id",
                 group: "projectCategory"
+            }
+        },
+        visConfig: {
+            nodes: {
+                shape: 'square',
             }
         },
         relationships: {
