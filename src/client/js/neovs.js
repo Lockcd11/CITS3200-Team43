@@ -67,7 +67,7 @@ function draw() {
             WORKED_ON: {
             }
         },
-        initialCypher: "MATCH (n:CoreResearcher)-[r:WORKED_WITH]->(m:Researcher)-[k:WORKED_ON]->(h:Project) RETURN n,r,m,k,h"
+        initialCypher: "MATCH (n)-[r:WORKED_WITH]->(m)-[k:WORKED_ON]->(h) RETURN n,r,m,k,h"
     };
 
     neoViz = new NeoVis.default(config);
