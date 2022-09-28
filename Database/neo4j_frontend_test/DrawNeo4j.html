@@ -5,12 +5,18 @@
             #viz {
                 width: 900px;
                 height: 700px;
+                font-family: Arial, Helvetica, sans-serif;
             }
         </style>
         <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
         <script src="neovs.js"></script>
     </head>
-    <body onload="draw()">
+    <body>
+        <div id="search">
+            <input type="text" placeholder="Search.." id="searchBar">
+            <button onclick="draw()"> Search </button>
+        </div>
+        <div id="viz"></div>
         <table id="researcher" hidden>
             <tr>
                 <td>Name</td>
@@ -67,6 +73,5 @@
                 <td id="projectName"></td>
             </tr>
         </table>
-        <div id="viz"></div>
     </body>
 </html>

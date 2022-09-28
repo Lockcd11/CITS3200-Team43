@@ -21,17 +21,24 @@ function layerSoughter(layer) {
 }
 
 function draw() {
+    //   Project inbetween
+    //   const search = "MATCH (a) WHERE a.id = '" + document.getElementById('searchBar').value + "' OPTIONAL MATCH (a)-[b: WORKED_ON] - (p)- [o: WORKED_ON] - (c) OPTIONAL MATCH (c)-[l: WORKED_ON] - (k)- [q: WORKED_ON] - (e) WHERE NOT e = a RETURN * "
+    //   Just relationships for scopus db
+    //   const search = "MATCH (a) WHERE a.id = '" + document.getElementById('searchBar').value + "' OPTIONAL MATCH (a)-[b: WORKED_WITH] - (c) OPTIONAL MATCH (c)-[d: WORKED_WITH] - (e) WHERE NOT e = a RETURN * "
+    //   Just relationships for test
+    const search = "MATCH (a:CoreResearcher) WHERE a.name = '" + document.getElementById('searchBar').value + "' OPTIONAL MATCH (a)-[b: WORKED_WITH] - (c) OPTIONAL MATCH (c)-[d: WORKED_WITH] - (e) WHERE NOT e = a RETURN * "
     const config = {
         containerId: "viz",
         neo4j: {
             serverUrl: "bolt://localhost:7687",
             serverUser: "neo4j",
             serverPassword: "group43"
+            //serverPassword: "adam"
         },
         labels: {
             Researcher: {
                 label: "name",
-                value: "id",
+                value: "layerOfKnown",
                 group: "layerOfKnown"
             },
             Project: {
@@ -52,12 +59,14 @@ function draw() {
             WORKED_ON: {
             }
         },
-        //initialCypher: "MATCH (n)-[r:WORKED_WITH]->(m)-[k:WORKED_ON]->(h)RETURN *"
-        initialCypher: "MATCH (n), (j)-[r]->(m) RETURN *"
+        initialCypher: search
+        //Use to return all relationships and researchers
+        //initialCypher: "MATCH (n:Researcher), (j)-[r:WORKED_WITH]->(m) RETURN *"
     };
 
     neoViz = new NeoVis.default(config);
     neoViz.render();
+
     neoViz.registerOnEvent("clickNode", (properties) => {
         nodeInformation = properties.node.raw
         labels = nodeInformation.labels;
