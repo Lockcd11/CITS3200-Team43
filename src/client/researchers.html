@@ -44,73 +44,32 @@
         </div>
     </nav>
 
-    <section  style="min-height: 100vh;">
-        <div class="container-fluid hero-img text-primary-c">
+    <section style="min-height: 100vh;">
+        <div class="container text-primary-c">
             <div class="d-flex justify-content-center align-items-center text-center">
                 <img src="./img/ResearcherDetails.png">
             </div>
-           <!--Table Display -->
-           <div>
-            <h4 class="text-dark">Add Researcher</h4>
-            <table id="researcher" class="table table-light">
-                <tr>
-                    <td>Full Name</td>
-                    <td id="researcherName"></td>
-                </tr>
-                <tr>
-                    <td>Scopus ID</td>
-                    <td id="scopusID"></td>
-                </tr>   
-                <tr>
-                    <td>Degree of Connection</td>
-                    <td id="layerOfKnown"></td>
-                </tr>
-            </table>
-            <table id="project" class="table table-light">
-            <h4 class="text-dark">Add Publication</h4>
-                <tr>
-                    <td>Category</td>
-                    <td id="projectCategory"></td>
-                </tr>
-                <tr>
-                    <td>Year of Publication</td>
-                    <td id="publicationYear"></td>
-                </tr>
-            </table>
-            <!-- <table id="relationShip_WORKED_WITH" class="table table-light">
-                <tr>
-                    <td>Relationship</td>
-                    <td>Worked With</td>
-                </tr>
-                <tr>
-                    <td>First Name</td>
-                    <td id="r1"></td>
-                </tr>
-                <tr>
-                    <td>Last Name</td>
-                    <td id="r2"></td>
-                </tr>
-                <tr>
-                    <td>Times Worked Together</td>
-                    <td id="workedWith"></td>
-                </tr>
-            </table>
-            <table id="relationShip_WORKED_ON" class="table table-light">
-                <tr>
-                    <td>Relationship</td>
-                    <td>Worked On</td>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td id="r"></td>
-                </tr>
-                <tr>
-                    <td>Name of Project</td>
-                    <td id="projectName"></td>
-                </tr>
-            </table> -->
-        <!-- </div> -->
-        </div>
+            <!--Table Display -->
+            <div>
+                <h4 class="text-dark">Add Researcher</h4>
+                <form class="mb-5 border border-dark rounded shadow p-3">
+                    <div class="mb-3">
+                        <label for="scopusIDForm" class="form-label text-dark">Scopus ID</label>
+                        <input type="number" class="form-control" id="scopusIDForm">
+                    </div>
+                    <button id="addKeyBtn" type="submit" class="btn btn-primary-c">Submit</button>
+                </form>
+            </div>
+            <div>
+                <h4 class="text-dark">Change Scopus API Key</h4>
+                <form class="mb-5 border border-dark rounded shadow p-3">
+                    <div class="mb-3">
+                        <label for="scopusAPIKeyForm" class="form-label text-dark">Scopus API Key</label>
+                        <input type="text" class="form-control" id="scopusAPIKeyForm">
+                    </div>
+                    <button id="apiKeyBtn" type="submit" class="btn btn-primary-c">Submit</button>
+                </form>
+            </div>
     </section>
 
     <footer class="border-top">
@@ -123,6 +82,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="./js/forms.js"></script>
 
 </body>
 
