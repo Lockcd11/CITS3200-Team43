@@ -1,0 +1,53 @@
+LOAD CSV WITH HEADERS FROM 'file:///publications.csv' AS row
+CREATE (publications:Project {
+    id: row.id,
+    title: row.title,
+    type: row.type,
+    publisher: row.publisher,
+    link: row.link,
+    CoAuthors: row.author_count
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///researchers.csv' AS row
+CREATE (researchers:Researcher {
+    id: row.id,
+    name: row.name,
+    link: row.link,
+    layerOfKnown: row.degrees,
+    CoAuthors: row.coauthor_count
+})
+
+MATCH (n:Researcher)
+WHERE n.layerOfKnown = "2"
+    SET n:SecondDegree
+
+MATCH (n:Researcher)
+WHERE n.layerOfKnown = "1"
+    SET n:FirstDegree
+
+MATCH (n:Researcher)
+WHERE n.layerOfKnown = "0"
+    SET n:CoreResearcher
+
+--------------------------------------------------------------------------------------------------------
+
+MATCH (n:FirstDegree), (a:SecondDegree) WHERE n.id = a.id DELETE a
+
+MATCH (n:CoreResearcher), (a:SecondDegree) WHERE n.id = a.id DELETE a
+
+MATCH (n:CoreResearcher), (a:FirstDegree) WHERE n.id = a.id DELETE a
+
+----------------------------------------------------------------------------------------------------------
+ 
+LOAD CSV WITH HEADERS FROM 'file:///relationships.csv' AS row
+ MATCH
+ (a:Researcher),
+ (b:Project) 
+ WHERE row.author_id = a.id AND row.publication_eid = b.id
+ CREATE (a)-[r:WORKED_ON]->(b)
+
+MATCH
+ (a:Researcher)-[r:WORKED_ON]->(p:Project),
+ (b:Researcher)-[l:WORKED_ON]->(p:Project)
+    MERGE (a)-[k:WORKED_WITH]-(b)
+
