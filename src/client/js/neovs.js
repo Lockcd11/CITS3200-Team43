@@ -3,7 +3,7 @@ var neoViz;
 secondDegree = ""
 
 function hideAll() {
-    researcher1.style.display = 'none';
+    researcher.style.display = 'none';
     project.style.display = 'none';
     relationShip_WORKED_WITH.style.display = 'none';
     relationShip_WORKED_ON.style.display = 'none';
@@ -169,7 +169,7 @@ function draw() {
         labels = nodeInformation.labels;
         if (labels.includes("Researcher")) {
             hideAll();
-            researcher1.style.display = 'block';
+            researcher.style.display = 'block';
             expand.style.display = 'block';
             scopusID.innerHTML = nodeInformation.properties.id;
             researcherName.innerHTML = nodeInformation.properties.name;

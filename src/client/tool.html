@@ -2,172 +2,138 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Network Mapper | Graph Visualiser</title>
 
     <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
     <script src="/src/client/js/neovs.js"></script>
 
-    <link rel="stylesheet" href="./css/main.css">
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
-        defer></script>
+    <link rel="stylesheet" href="./css/tool.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow" aria-label="Navbar">
-        <div class="container-fluid px-5">
-            <img src="./img/blackbglogosmall.png" alt="logo" width="50" height="50">
-            <a href="./index.html" class="navbar-brand ps-md-3">Network Mapper</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
-                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <div>
+        <ul class="navbar">
+            <li class="navlogo"><img src="./img/blackbglogosmall.png" alt="logo" width="58" height="58"></li>
+            <li class="navtitle"><a href="./index.html">Network Mapper</a></li>
+            <li class="currentpage"><a href="./tool.html">Tool</a></li>
+            <li><a href="./researchers.html">Researchers</a></li>
+            <li><a href="./index.html">Home</a></li>
+        </ul>
+    </div>
 
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="nav navbar-nav ms-auto">
-                    <li class="nav-item px-md-3">
-                        <a class="nav-link" aria-current="page" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item px-md-3">
-                        <a class="nav-link" href="./researchers.html">Researchers</a>
-                    </li>
-                    <li class="nav-item px-md-3">
-                        <a class="nav-link active" href="./tool.html">Tool</a>
-                    </li>
-                </ul>
-            </div>
+    <div>
+        <div id="search">
+            <input type="text" placeholder=" Scopus ID" id="searchBar" class="searchbar">
+            <button onclick="newDraw()" class="searchbutton">Search</button>
+            <input type="checkbox" id="secondDegree" class="bigcheckbox">
+            <label for="secondDegree" class="degreelabel">Second Degree Connections</label>
         </div>
-    </nav>
-
-    <section style="margin-left: auto; margin-right: auto">
-        <!-- <div class="d-flex justify-content-center align-items-center text-center" style="margin-top: 10px; margin-bottom: 5px;">
-            <img src="./img/NetworkingTool.png">
-        </div> -->
-        <div id="search" style="height: 5vh; margin-top: 15px">
-            <input type="text" placeholder="Scopus ID" id="searchBar" style="margin-right: 4px; border: solid 1px black; border-radius: 5px">
-            <button onclick="newDraw()" style="margin-right: 4px; border: solid 1px black; border-radius: 5px"> Search </button>
-            <input type="checkbox" id="secondDegree"><span class="checkmark"></span>
-            <label for="secondDegree">Second Degree Connections</label>
-        </div>
-        <div id="viz"></div>
-        <table id="researcher1" hidden>
-            <tr>
-                <td>Name</td>
-                <td id="researcherName"></td>
-            </tr>
-            <tr>
-                <td>Layer Of Known</td>
-                <td id="layerOfKnown"></td>
-            </tr>
-            <tr>
-                <td>Co-Authors</td>
-                <td id="researcherAuthors"></td>
-            </tr>
-            <tr>
-                <td>Scopus ID</td>
-                <td id="scopusID"></td>
-            </tr>
-            <tr>
-                <td>Scopus Link</td>
-                <td><a href="url" id="link" target="_blank" rel="noopener noreferrer"></a></td>
-            </tr>
-        </table>
-        <table id="project" hidden>
-            <tr>
-                <td>Title</td>
-                <td id="projectTitle"></td>
-            </tr> 
-            <tr>
-                <td>Co-Authors</td>
-                <td id="projectAuthors"></td>
-            </tr>
-            <tr>
-                <td>Type</td>
-                <td id="projectType"></td>
-            </tr>
-            <tr>
-                <td>Publisher</td>
-                <td id="projectPublisher"></td>
-            </tr>
-            <tr>
-                <td>Project id</td>
-                <td id="projectID"></td>
-            </tr>
-            <tr>
-                <td>Project Link</td>
-                <td><a href="url" id="projectLink" target="_blank" rel="noopener noreferrer"></a></td>
-            </tr>
-        </table>
-        <table id="relationShip_WORKED_WITH" hidden>
-            <tr>
-                <td>Relationship</td>
-                <td>Worked With</td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td id="r1"></td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td id="r2"></td>
-            </tr>
-            <tr>
-                <td>Times worked together</td>
-                <td id="workedWith"></td>
-            </tr>
-        </table>
-        <table id="relationShip_WORKED_ON" hidden>
-            <tr>
-                <td>Relationship</td>
-                <td>Worked On</td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td id="r"></td>
-            </tr>
-            <tr>
-                <td>Name of Project</td>
-                <td id="projectName"></td>
-            </tr>
-        </table>
-        <div id="expand" hidden>
-            <a id="res" hidden></a>
-            <input type="checkbox" id="expandPublications">
-            <label for="expandPublications"> Publications </label>
-            <br>
-            <input type="checkbox" id="expandResearcher">
-            <label for="expandResearcher"> Expand </label>
-            <br>
-            <button onclick="draw()"> Load </button>
-        </div>
-        <div id="expand2" hidden>
-            <a id="pub" hidden></a>
-            <a id="pubRes" hidden></a>
-            <input type="checkbox" id="projectExpansion">
-            <label for="projectExpansion"> Expand </label>
-            <br>
-            <button onclick="draw()"> Load </button>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container-fluid bg-dark py-3" style="min-height: 10vh">
-            <div class="container">
-                <div class="d-flex flex-column justify-content-center align-items-center" style="min-height: 10vh;">
-                    <p class="text-light">&copy; Cam, Harry, Kane, Adam, Callum, Maaz</p>
-                    <p class="text-muted">Team 43 - Network Mapper - CITS3200 - University of Western Australia</p>
+        <div class="graphingtool">
+            <div class="left" id="viz"></div>
+            <div class="right">
+                <table id="researcher" class="graphtable" hidden>
+                    <tr>
+                        <td>Name</td>
+                        <td id="researcherName"></td>
+                    </tr>
+                    <tr>
+                        <td>Layer Of Known</td>
+                        <td id="layerOfKnown"></td>
+                    </tr>
+                    <tr>
+                        <td>Co-Authors</td>
+                        <td id="researcherAuthors"></td>
+                    </tr>
+                    <tr>
+                        <td>Scopus ID</td>
+                        <td id="scopusID"></td>
+                    </tr>
+                    <tr>
+                        <td>Scopus Link</td>
+                        <td><a href="url" id="link" target="_blank" rel="noopener noreferrer"></a></td>
+                    </tr>
+                </table>
+                <table id="project" class="graphtable" hidden>
+                    <tr>
+                        <td>Title</td>
+                        <td id="projectTitle"></td>
+                    </tr> 
+                    <tr>
+                        <td>Co-Authors</td>
+                        <td id="projectAuthors"></td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td id="projectType"></td>
+                    </tr>
+                    <tr>
+                        <td>Publisher</td>
+                        <td id="projectPublisher"></td>
+                    </tr>
+                    <tr>
+                        <td>Project id</td>
+                        <td id="projectID"></td>
+                    </tr>
+                    <tr>
+                        <td>Project Link</td>
+                        <td><a href="url" id="projectLink" target="_blank" rel="noopener noreferrer"></a></td>
+                    </tr>
+                </table>
+                <table id="relationShip_WORKED_WITH" class="graphtable" hidden>
+                    <tr>
+                        <td>Relationship</td>
+                        <td>Worked With</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td id="r1"></td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td id="r2"></td>
+                    </tr>
+                    <tr>
+                        <td>Times worked together</td>
+                        <td id="workedWith"></td>
+                    </tr>
+                </table>
+                <table id="relationShip_WORKED_ON" class="graphtable" hidden>
+                    <tr>
+                        <td>Relationship</td>
+                        <td>Worked On</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td id="r"></td>
+                    </tr>
+                    <tr>
+                        <td>Name of Project</td>
+                        <td id="projectName"></td>
+                    </tr>
+                </table>
+                <div id="expand" hidden>
+                    <a id="res" hidden></a>
+                    <input type="checkbox" id="expandPublications">
+                    <label for="expandPublications" class="loadlabels"> Publications </label>
+                    <input type="checkbox" id="expandResearcher">
+                    <label for="expandResearcher" class="loadlabels"> Expand </label>
+                    <button onclick="draw()" class="loadbutton"> Update Graph </button>
+                </div>
+                <div id="expand2" hidden>
+                    <a id="pub" hidden></a>
+                    <a id="pubRes" hidden></a>
+                    <input type="checkbox" id="projectExpansion">
+                    <label for="projectExpansion"> Expand </label>
+                    <button onclick="draw()" class="loadbutton"> Search </button>
                 </div>
             </div>
         </div>
-    </footer>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p class="groupnames">&copy; Cam, Harry, Kane, Adam, Callum, Maaz</p>
+        <p>Team 43 - Network Mapper - CITS3200 - University of Western Australia</p>
+    </div>
 </body>
 
 </html>
