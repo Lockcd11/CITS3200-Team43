@@ -2,11 +2,12 @@
 
 A List of Front End stuff to do:
 
-1. set the colours of the nodes nicely based on if the node is 1. a core researcher, 2. a first or second degree researcher, 3. a subject
+1. scale the size of the canvas for the graph to the size of the window the user has
 2. have the core researchers spawn in the average centre position on the screen
 3. give the website a bit more formatting and universality, (a set colour scheme, shared fonts, buttons clean and organised, pages all link together seamlessly)
 4. have the 'physics' of the neo4j network better display the graph when interacted with (1. bigger margins between nodes so nothing overlaps, 2. prevent edges overlapping?)
 5. have the graph use the same fonts/bevels as the rest of the website
 6. longer edges and more space between nodes
 
-      
+cant do with neo4j neovis.js      
+1. set the colours of the nodes nicely based on if the node is 1. a core researcher, 2. a first or second degree researcher, 3. a subject

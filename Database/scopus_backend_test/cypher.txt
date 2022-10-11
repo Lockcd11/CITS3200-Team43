@@ -1,3 +1,5 @@
+MATCH (n) DETACH DELETE n
+
 LOAD CSV WITH HEADERS FROM 'file:///publications.csv' AS row
 CREATE (publications:Project {
     id: row.id,

@@ -1,6 +1,6 @@
 
 :root {
-    --primary: rgb(222, 230, 230);
+    --primary: rgb(230, 233, 233);
     --secondary: rgb(58, 58, 58);
 }
 
@@ -57,9 +57,29 @@
 }
 
 #viz {
-  width: var(device-width);
-  height: 550px;
+  width: 98%;
+  height: 500px;
   background-color: var(--primary);
   border-radius: 10px;
-  border: 4px var(--secondary) solid;
+  border: 1px var(--secondary) solid;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+#search {
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.footer {
+  position: absolute;
+  bottom: 15px;
+  width: 100%
+}
+
+#expand {
+  background-color: blue;
+}
+

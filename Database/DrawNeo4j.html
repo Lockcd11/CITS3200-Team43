@@ -1,63 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<html>
+    <head>
+        <title>DataViz</title>
+        <style type="text/css">
+            #viz {
+                width: 900px;
+                height: 700px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        </style>
+        <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
+        <script src="neovs.js"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Mapper | Graph Visualiser</title>
-
-    <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
-    <script src="/src/client/js/neovs.js"></script>
-
-    <link rel="stylesheet" href="./css/main.css">
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
-        defer></script>
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow" aria-label="Navbar">
-        <div class="container-fluid px-5">
-            <img src="./img/blackbglogosmall.png" alt="logo" width="50" height="50">
-            <a href="./index.html" class="navbar-brand ps-md-3">Network Mapper</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
-                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="nav navbar-nav ms-auto">
-                    <li class="nav-item px-md-3">
-                        <a class="nav-link" aria-current="page" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item px-md-3">
-                        <a class="nav-link" href="./researchers.html">Researchers</a>
-                    </li>
-                    <li class="nav-item px-md-3">
-                        <a class="nav-link active" href="./tool.html">Tool</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <section style="margin-left: auto; margin-right: auto">
-        <!-- <div class="d-flex justify-content-center align-items-center text-center" style="margin-top: 10px; margin-bottom: 5px;">
-            <img src="./img/NetworkingTool.png">
-        </div> -->
-        <div id="search" style="height: 5vh; margin-top: 15px">
-            <input type="text" placeholder="Scopus ID" id="searchBar" style="margin-right: 4px; border: solid 1px black; border-radius: 5px">
-            <button onclick="newDraw()" style="margin-right: 4px; border: solid 1px black; border-radius: 5px"> Search </button>
-            <input type="checkbox" id="secondDegree"><span class="checkmark"></span>
-            <label for="secondDegree">Second Degree Connections</label>
+        defer></script> -->
+    </head>
+    <body>
+        <div id="search">
+            <input type="text" placeholder="Search.." id="searchBar">
+            <button onclick="newDraw()"> Search </button>
+            <input type="checkbox" id="secondDegree">
+            <label for="secondDegree">  Second Degree Connections  </label>
         </div>
         <div id="viz"></div>
-        <table id="researcher1" hidden>
+        <table id="researcher" hidden>
             <tr>
                 <td>Name</td>
                 <td id="researcherName"></td>
@@ -155,19 +123,5 @@
             <br>
             <button onclick="draw()"> Load </button>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container-fluid bg-dark py-3" style="min-height: 10vh">
-            <div class="container">
-                <div class="d-flex flex-column justify-content-center align-items-center" style="min-height: 10vh;">
-                    <p class="text-light">&copy; Cam, Harry, Kane, Adam, Callum, Maaz</p>
-                    <p class="text-muted">Team 43 - Network Mapper - CITS3200 - University of Western Australia</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
-
+    </body>
 </html>
