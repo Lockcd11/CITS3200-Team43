@@ -1,5 +1,3 @@
-from distutils.log import WARN
-from sre_constants import SUCCESS
 from flask import render_template, flash
 from app import app
 from app.forms import AddResearcherForm, ChangeAPIKey
