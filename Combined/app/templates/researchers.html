@@ -60,7 +60,8 @@
             <!--Table Display -->
             <div>
                 <h4 class="text-dark">Add Researcher</h4>
-                <form class="mb-5 border border-dark rounded shadow p-3" action="" method="post" novalidate>
+                <form class="mb-5 border border-dark rounded shadow p-3" action="" method="post">
+                    {{ form1.hidden_tag() }}
                     <div class="mb-3">
                         {{ form1.researcher.label }}<br>
                         {{ form1.researcher(size=32) }}
@@ -68,6 +69,7 @@
                         <input type="number" class="form-control" id="scopusIDForm">
                         -->
                     </div>
+                    {{ form1.senior() }}{{ form1.senior.label }}
                     {{ form1.submit() }}
                     <!--<button id="addKeyBtn" type="submit" class="btn btn-primary-c">Submit</button>
                     -->
@@ -75,7 +77,8 @@
             </div>
             <div>
                 <h4 class="text-dark">Change Scopus API Key</h4>
-                <form class="mb-5 border border-dark rounded shadow p-3">
+                <form class="mb-5 border border-dark rounded shadow p-3" action="" method="post">
+                    {{ form2.hidden_tag() }}
                     <div class="mb-3">
                         {{ form2.APIKey.label }}<br>
                         {{ form2.APIKey(size=32) }}
