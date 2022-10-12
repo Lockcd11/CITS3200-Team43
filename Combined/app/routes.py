@@ -17,8 +17,9 @@ def researchers():
         flash('adding researcher', 'error')
         return('/researchers.html')
         # DataStructure("--add", form1.researcher)
-        # flash('Researcher added', 'success')
+        # flash('Researcher added', category="success")
         # return('/researchers.html')
+        # add these back in once we know the form is working
     form2 = ChangeAPIKey()
     if form2.validate_on_submit():
         pass
