@@ -1,0 +1,17 @@
+[Directories]
+AbstractRetrieval = /Users/cameronlocke/.pybliometrics/Scopus/abstract_retrieval
+AffiliationRetrieval = /Users/cameronlocke/.pybliometrics/Scopus/affiliation_retrieval
+AffiliationSearch = /Users/cameronlocke/.pybliometrics/Scopus/affiliation_search
+AuthorRetrieval = /Users/cameronlocke/.pybliometrics/Scopus/author_retrieval
+AuthorSearch = /Users/cameronlocke/.pybliometrics/Scopus/author_search
+CitationOverview = /Users/cameronlocke/.pybliometrics/Scopus/citation_overview
+ScopusSearch = /Users/cameronlocke/.pybliometrics/Scopus/scopus_search
+SerialSearch = /Users/cameronlocke/.pybliometrics/Scopus/serial_search
+SerialTitle = /Users/cameronlocke/.pybliometrics/Scopus/serial_title
+PlumXMetrics = /Users/cameronlocke/.pybliometrics/Scopus/plumx
+SubjectClassifications = /Users/cameronlocke/.pybliometrics/Scopus/subject_classification
+
+[Authentication]
+APIKey = [YOUR API HERE]
+[Requests]
+Timeout = 20
