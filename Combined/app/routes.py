@@ -7,6 +7,9 @@ from pybliometrics.scopus import AbstractRetrieval
 from sortedcontainers import SortedSet
 import pandas as pd
 import csv
+import os
+
+os.environ['PYB_CONFIG_FILE'] = "./pyconfig.ini"
 
 @app.route('/')
 @app.route('/index.html')
@@ -26,7 +29,12 @@ def researchers():
         flash('Researcher added', 'success')
         return render_template('researchers.html', form1=form1, form2=form2)
     if form2.validate_on_submit():
-        pass
+        f = open("./pyconfig.ini", "w")
+        f.write("[Directories]\nAbstractRetrieval = ./.pybliometrics/Scopus/abstract_retrieval\nAffiliationRetrieval = ./.pybliometrics/Scopus/affiliation_retrieval\nAffiliationSearch = ./.pybliometrics/Scopus/affiliation_search\nAuthorRetrieval = ./.pybliometrics/Scopus/author_retrieval\nAuthorSearch = ./.pybliometrics/Scopus/author_search\nCitationOverview = ./.pybliometrics/Scopus/citation_overview\nScopusSearch = ./.pybliometrics/Scopus/scopus_search\nSerialSearch = ./.pybliometrics/Scopus/serial_search\nSerialTitle = ./.pybliometrics/Scopus/serial_title\nPlumXMetrics = ./.pybliometrics/Scopus/plumx\nSubjectClassifications = ./.pybliometrics/Scopus/subject_classification\n\n[Authentication]\nAPIKey = " + form2.APIKey.data + "\n\n[Requests]\nTimeout = 20") #EDIT TO FIT WHERE THE ACTUAL FILES WILL GO
+        f.close()
+        flash('API Key Changed', 'success')
+        return render_template('researchers.html', form1=form1, form2=form2)
+
     return render_template('researchers.html', form1=form1, form2=form2)
 
 @app.route('/tool.html')
