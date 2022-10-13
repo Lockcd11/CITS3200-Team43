@@ -63,8 +63,9 @@ li a {
 .searchbutton {
     background-color: rgb(36, 36, 36);
     color:rgb(245, 241, 241);
-    border-radius: 2px;
+    border-radius: 4px;
     height: 24px;
+    border: none;
 }
 .searchbutton:hover {
     background-color: rgb(146, 144, 144);
