@@ -1,0 +1,17 @@
+[Directories]
+AbstractRetrieval = /[LOCATION]/.pybliometrics/Scopus/abstract_retrieval
+AffiliationRetrieval = /[LOCATION]/.pybliometrics/Scopus/affiliation_retrieval
+AffiliationSearch = /[LOCATION]/.pybliometrics/Scopus/affiliation_search
+AuthorRetrieval = /[LOCATION]/.pybliometrics/Scopus/author_retrieval
+AuthorSearch = /[LOCATION]/.pybliometrics/Scopus/author_search
+CitationOverview = /[LOCATION]/.pybliometrics/Scopus/citation_overview
+ScopusSearch = /[LOCATION]/.pybliometrics/Scopus/scopus_search
+SerialSearch = /[LOCATION]/.pybliometrics/Scopus/serial_search
+SerialTitle = /[LOCATION]/.pybliometrics/Scopus/serial_title
+PlumXMetrics = /[LOCATION]/.pybliometrics/Scopus/plumx
+SubjectClassifications = /[LOCATION]/.pybliometrics/Scopus/subject_classification
+
+[Authentication]
+APIKey = [YOUR API HERE]
+[Requests]
+Timeout = 20

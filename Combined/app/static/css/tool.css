@@ -1,0 +1,188 @@
+/* the 'all' selector, setting default font as Arial */
+* {
+    font-family: Arial
+}
+
+/* START OF NAV BAR FORMATTING */
+/* Navigation Bar at top of page, essentially a list of links converted into buttons and layed out horizontally */
+.navbar { 
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+    overflow: hidden;
+    background-color: rgb(36, 36, 36);
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 58px; 
+}
+
+/* aligns the regular nav page elements to the right of the screen */
+li { float: right; }
+
+/* hovering over the list will highlight the corresponding element */
+li:hover { background-color: rgb(95, 95, 95); }
+
+/* aligns the title and logo to the left of the screen*/
+.navlogo { float: left; margin-left: 10px}
+
+/* specifics for the page title */
+.navtitle { float: left; font-weight: bold; font-size: 19px; } 
+.navtitle:hover { background-color: transparent; }
+/* specifics for the current page */
+.currentpage { font-weight: bold } 
+.currentpage:hover { background-color: transparent;}
+
+/* pads and colours the nav list elements */
+li a {
+    display: block;
+    color: rgb(218, 214, 214);
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+}
+/* END OF NAV BAR FORMATTING */
+
+/* START OF PAGE CONTENT FORMATTING */
+#search {
+    margin-top: 70px;
+    margin-left: 8px;
+    display: block;
+    user-select: none;
+}
+
+.searchbar {
+    border: solid 1px rgb(146, 144, 144);
+    border-radius: 2px;
+    height: 20px;
+    margin-right: 1px;
+}
+
+.searchbutton {
+    background-color: rgb(36, 36, 36);
+    color:rgb(245, 241, 241);
+    border-radius: 2px;
+    height: 24px;
+}
+.searchbutton:hover {
+    background-color: rgb(146, 144, 144);
+    cursor: pointer;
+}
+
+.bigcheckbox {
+    position: absolute;
+    top: 69px;
+    left: 870px;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    background-color: rgb(245, 243, 243);
+    border: solid 1px black;
+}
+
+.degreelabel {
+    position: absolute;
+    top: 74px;
+    left:  900px;
+    font-size: 14px;
+    color: rgb(36, 36, 36)
+}
+
+/* The canvas for displaying the network graph */
+#viz {
+    height: 530px;
+    width: 70%;
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border: solid 1px rgb(146, 144, 144);
+    border-radius: 4px;
+    background-color: rgb(232, 232, 236);
+}
+
+.graphingtool { display: flex } 
+
+.graphtable {
+    margin-top: 8px;
+    position: relative;
+    text-align: left;
+    font-size: 14px;
+    border: solid 1px rgb(36, 36, 36);
+    border-radius: 4px;
+}
+
+td, th {
+    color: rgb(36, 36, 36);
+    border-radius: 4px;    
+    padding: 10px;
+}
+
+tr:nth-child(odd) {background-color: #f2f2f2;}
+#link { font-size: 10px }
+
+#expandPublications {
+    position: relative;
+    top: 6px;
+    left: -4px;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    background-color: rgb(245, 243, 243);
+    border: solid 1px black;
+}
+
+.loadlabels {
+    font-size: 14px;
+    color: rgb(36, 36, 36);
+    position: relative;
+    left: -4px;
+}
+
+#expandResearcher {
+    position: relative;
+    top: 6px;
+    left: -4px;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    background-color: rgb(245, 243, 243);
+    border: solid 1px black;
+}
+
+.loadbutton {
+    float: right;
+    position: relative;
+    top: 7px;
+    background-color: rgb(36, 36, 36);
+    color:rgb(245, 241, 241);
+    border-radius: 2px;
+    height: 24px;
+}
+
+.loadbutton:hover {
+    background-color: rgb(146, 144, 144);
+    cursor: pointer;
+}
+
+/* END OF PAGE CONTENT FORMATTING */
+
+/* START OF FOOTER FORMATTING */
+.footer {
+    margin-top: 8px;
+    background-color: rgb(36, 36, 36);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 3px;
+}
+
+p {
+    color: rgb(85, 84, 84);
+    font-size: 14px;
+}
+/* END OF FOOTER FORMATTING */
