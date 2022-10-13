@@ -1,7 +1,7 @@
 let myModal = new bootstrap.Modal(document.getElementById('modal'));
 
 // Reset localStorage
-localStorage.setItem('first_time_user', 'true');
+// localStorage.setItem('first_time_user', 'true');
 
 const check_first_time_user = () => {
 
