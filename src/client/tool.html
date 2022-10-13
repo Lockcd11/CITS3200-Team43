@@ -4,6 +4,15 @@
 <head>
     <title>Network Mapper | Graph Visualiser</title>
 
+    <!-- Bootstrap CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
     <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
     <script src="/src/client/js/neovs.js"></script>
 
@@ -57,7 +66,7 @@
                     <tr>
                         <td>Title</td>
                         <td id="projectTitle"></td>
-                    </tr> 
+                    </tr>
                     <tr>
                         <td>Co-Authors</td>
                         <td id="projectAuthors"></td>
@@ -129,11 +138,39 @@
             </div>
         </div>
 
-    <!-- FOOTER -->
-    <div class="footer">
-        <p class="groupnames">&copy; Cam, Harry, Kane, Adam, Callum, Maaz</p>
-        <p>Team 43 - Network Mapper - CITS3200 - University of Western Australia</p>
+        <!-- FOOTER -->
+        <div class="footer">
+            <p class="groupnames">&copy; Cam, Harry, Kane, Adam, Callum, Maaz</p>
+            <p>Team 43 - Network Mapper - CITS3200 - University of Western Australia</p>
+        </div>
+
+        <!-- MODAL -->
+        <div class="modal mt-5" tabindex="-1" id="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning">
+                        <h3 class="modal-title">Welcome to our networking tool!</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="m-3">
+                            <li class="pb-4">Ensure your neo4j database is running</li>
+                            <li class="pb-4">If you have any issues, refer to the troubleshooting document</li>
+                            <li class="pb-4">Input a scopus ID in the search bar and click search to get started</li>
+                            <li class="pb-4">Some queries might take some time, so please be patient</li>
+                            <li>You can choose to show second degree connections by ticking the check box</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="./js/modals.js"></script>
+
 </body>
 
 </html>
