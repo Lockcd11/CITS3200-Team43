@@ -48,7 +48,7 @@ li a {
 /* START OF PAGE CONTENT FORMATTING */
 #search {
     margin-top: 70px;
-    margin-left: 8px;
+    margin-left: 0px;
     display: block;
     user-select: none;
 }
@@ -74,7 +74,7 @@ li a {
 .bigcheckbox {
     position: absolute;
     top: 69px;
-    left: 870px;
+    left: 56vw;
     height: 20px;
     width: 20px;
     border-radius: 4px;
@@ -85,17 +85,17 @@ li a {
 .degreelabel {
     position: absolute;
     top: 74px;
-    left:  900px;
+    left:  59vw;
     font-size: 14px;
     color: rgb(36, 36, 36)
 }
 
 /* The canvas for displaying the network graph */
 #viz {
-    height: 530px;
-    width: 70%;
+    height: 71vh;
+    width: 70vw;
     margin-top: 8px;
-    margin-left: 8px;
+    margin-left: 0px;
     margin-right: 8px;
     border: solid 1px rgb(146, 144, 144);
     border-radius: 4px;
@@ -141,6 +141,17 @@ tr:nth-child(odd) {background-color: #f2f2f2;}
 }
 
 #expandResearcher {
+    position: relative;
+    top: 6px;
+    left: -4px;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    background-color: rgb(245, 243, 243);
+    border: solid 1px black;
+}
+
+#projectExpansion {
     position: relative;
     top: 6px;
     left: -4px;
