@@ -92,7 +92,7 @@ function draw() {
         neo4j: {
             serverUrl: "bolt://localhost:7687",
             serverUser: "neo4j",
-            serverPassword: "hello"
+            serverPassword: "group43"
         },
         
         labels: {
