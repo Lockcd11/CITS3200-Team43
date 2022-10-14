@@ -81,6 +81,20 @@ def update_worked_with(tx):
         MERGE (a)-[k:WORKED_WITH]-(b)
             """)
 
+def clearDups(tx):
+    return tx.run("""
+    MATCH (n1:Researcher),(n2:Researcher)
+    WHERE n1.id = n2.id and id(n1) < id(n2)
+    DETACH DELETE n2
+            """)
+
+def adjustCoAuthors(tx):
+    return tx.run("""
+    MATCH (a:Researcher)-[:WORKED_WITH]-(b:Researcher)
+    WITH a, count(b) as rels
+    SET a.CoAuthors = rels
+            """)
+
 def update_db():
     
     transfer_csvs(2)
@@ -111,6 +125,10 @@ def update_db():
     print("Clear 2 done\n")
     clear_3 = session.write_transaction(clear3)
     print("Clear 3 done\n")
+    clear_dups = session.write_transaction(clearDups)
+    print("Cleared Dups\n")
+    adjusted_coauthors = session.write_transaction(adjustCoAuthors)
+    print("Adjusted Co Authors\n")
     worked_on = session.write_transaction(update_worked_on)
     print("Worked on created\n")
     worked_with = session.write_transaction(update_worked_with)
@@ -119,37 +137,3 @@ def update_db():
     session.close()
     
     return 1
-
-
-def update_co_author(tx, scopusID, co_author):
-    return tx.run("""
-            MATCH (r:Researcher{id: $scopusID})
-            SET r.CoAuthors = $co_author
-                """, scopusID=scopusID, co_author=co_author)
-
-def update_node_co_author():
-    
-    db_details = {'db': None, 'password': None, 'port': None}
-    with open("db_details.txt", 'r') as f:
-        for i in f.readlines():
-            info = i.strip().split(',')
-            db_details[info[0]] = info[1]
-    
-    driver = GraphDatabase.driver(db_details['port'], auth=(db_details['db'], db_details['password']))
-    
-    session = driver.session()
-    
-    path = ""
-    node = ""
-    with open("current_csvs/add/researchers.csv", 'r') as file:
-        csvreader = csv.reader(file)
-        next(csvreader)
-        for row in file:
-            node = row.strip().split(",")
-            break
-    
-    update_coAuthor = session.write_transaction(update_co_author, node[0], node[3])
-    
-    session.close()
-#update_node_co_author()
-#update_db()

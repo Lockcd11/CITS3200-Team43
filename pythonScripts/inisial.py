@@ -86,12 +86,25 @@ def create_worked_with(tx):
         MERGE (a)-[k:WORKED_WITH]-(b)
             """)
 
+def clearDups(tx):
+    return tx.run("""
+    MATCH (n1:Researcher),(n2:Researcher)
+    WHERE n1.id = n2.id and id(n1) < id(n2)
+    DETACH DELETE n2
+            """)
+
+def adjustCoAuthors(tx):
+    return tx.run("""
+    MATCH (a:Researcher)-[:WORKED_WITH]-(b:Researcher)
+    WITH a, count(b) as rels
+    SET a.CoAuthors = rels
+            """)
 
 def create_db():
     
     transfer_csvs(1)
     
-    print("Files Transfered")
+    print("\nFiles Transfered\n")
     
     db_details = {'db': None, 'password': None, 'port': None}
     with open("db_details.txt", 'r') as f:
@@ -121,6 +134,10 @@ def create_db():
     print("Clear 2 done\n")
     clear_3 = session.write_transaction(clear3)
     print("Clear 3 done\n")
+    clear_dups = session.write_transaction(clearDups)
+    print("Cleared Dups\n")
+    adjusted_coauthors = session.write_transaction(adjustCoAuthors)
+    print("Adjusted Co Authors\n")
     worked_on = session.write_transaction(create_worked_on)
     print("Worked on created\n")
     worked_with = session.write_transaction(create_worked_with)
