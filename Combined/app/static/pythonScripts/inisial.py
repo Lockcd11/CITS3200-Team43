@@ -97,7 +97,7 @@ def clearDups(tx):
 
 def adjustCoAuthors(tx):
     return tx.run("""
-    MATCH (a:Researcher)-[:WORKED_WITH]-(b:Researcher)
+    MATCH (a:Researcher)-[r:WORKED_WITH]-(b:Researcher)
     WITH a, count(b) as rels
     SET a.CoAuthors = rels
             """)
