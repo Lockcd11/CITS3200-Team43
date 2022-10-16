@@ -1,6 +1,21 @@
 var neoViz;
-
+var portNumber = "bolt://localhost:7687"; 
+var password='';
 secondDegree = ""
+
+function getPort()
+{
+    var input = document.getElementById("portNumber").value;
+    portNumber="bolt://localhost:"+input;
+    console.log(portNumber)
+
+}
+function getPassword()
+{
+    var input = document.getElementById("password").value;
+    password=input;
+}
+
 
 function hideAll() {
     researcher.style.display = 'none';
@@ -90,9 +105,9 @@ function draw() {
     const config = {
         containerId: "viz",
         neo4j: {
-            serverUrl: "bolt://localhost:7687",
+            serverUrl: portNumber,
             serverUser: "neo4j",
-            serverPassword: "group43"
+            serverPassword: password
         },
         
         labels: {
