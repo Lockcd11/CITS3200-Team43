@@ -14,10 +14,11 @@ secondDegree = ""
 //}
 
 function hideAll() {
-    researcher.style.display = 'none';
+    r.style.display = 'none';
     project.style.display = 'none';
     expand.style.display = 'none';
     expand2.style.display = 'none';
+    download.style.display = 'none';
 }
 
 function layerSoughter(layer) {
@@ -162,8 +163,11 @@ function draw() {
         labels = nodeInformation.labels;
         if (labels.includes("Researcher")) {
             hideAll();
-            researcher.style.display = 'block';
+            r.style.display = 'block';
             expand.style.display = 'block';
+            if (labels.includes("SecondDegree")){
+                download.style.display = 'block';
+            }
             scopusID.innerHTML = nodeInformation.properties.id;
             researcherName.innerHTML = nodeInformation.properties.name;
             layerOfKnown.innerHTML = layerSoughter(nodeInformation.properties.layerOfKnown);
