@@ -1,7 +1,6 @@
 from flask import render_template, flash
-from Combined.app.forms import ExpandForm
 from app import app
-from app.forms import AddResearcherForm, ChangeAPIKey
+from app.forms import AddResearcherForm, ChangeAPIKey, ExpandForm
 from pybliometrics.scopus.utils import config
 from pybliometrics.scopus import AuthorRetrieval
 from pybliometrics.scopus import AbstractRetrieval
