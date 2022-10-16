@@ -1,40 +1,37 @@
 var neoViz;
 var portNumber = "bolt://localhost:7687"; 
-var password='';
+var password='group43';
 secondDegree = ""
 
-function getPort()
-{
-    var input = document.getElementById("portNumber").value;
-    portNumber="bolt://localhost:"+input;
-    console.log(portNumber)
-
-}
-function getPassword()
-{
-    var input = document.getElementById("password").value;
-    password=input;
-}
-
+//function getPort() {
+//    var input = document.getElementById("portNumber").value;
+//    portNumber = "bolt://localhost:" + input;
+//    console.log(portNumber)
+//}
+//function getPassword() {
+//    var input = document.getElementById("password").value;
+//    password = input;
+//}
 
 function hideAll() {
     researcher.style.display = 'none';
     project.style.display = 'none';
-    relationShip_WORKED_WITH.style.display = 'none';
-    relationShip_WORKED_ON.style.display = 'none';
     expand.style.display = 'none';
     expand2.style.display = 'none';
 }
 
 function layerSoughter(layer) {
-    if (layer == 0) {
+    if (layer == 3) {
         return ("Core Researcher")
     }
-    else if (layer == 1) {
+    else if (layer == 2) {
         return ("First Degree")
     }
-    else {
+    else if (layer == 1) {
         return ("Second Degree")
+    }
+    else {
+        return("Extra")
     }
 }
 
@@ -45,7 +42,6 @@ function newDraw() {
 
 function createQuery() {
     const base = "MATCH (a:CoreResearcher) WHERE a.name = '" + document.getElementById('searchBar').value + "' OR  a.id = '" + document.getElementById('searchBar').value + "'"
-    //const firstDegree = ""
     const firstDegree = " OPTIONAL MATCH (a:CoreResearcher)-[b: WORKED_WITH] - (c:Researcher)"
     const returnGraph = " RETURN * "
     expandProject = "";
@@ -67,15 +63,14 @@ function createQuery() {
     if (SD.checked) {
         secondDegree = " OPTIONAL MATCH (c:Researcher)-[e: WORKED_WITH] - (f:Researcher)"
         console.log(1)
-    } //WHERE toInteger(c.CoAuthors) < 50
+    }
     else if (expand.checked == true && (selectedResDegree == "Core Researcher" || selectedResDegree == "First Degree")) {
         secondDegree = " OPTIONAL MATCH (d:Researcher)-[e: WORKED_WITH] - (f:Researcher) WHERE d.id = '" + selectedRes + "'"
-        expand4.checked = false;
+        expand.checked = false;
         console.log(2)
     }
     if (expand.checked && (selectedResDegree == "Second Degree" || SD.checked)) {
         expandResearcher = " OPTIONAL MATCH (g:Researcher)-[h: WORKED_WITH] - (i:Researcher) WHERE g.id = '" + selectedRes + "'"
-        //return " MATCH (f:Researcher)-[g: WORKED_WITH] - (h:Researcher) WHERE f.id = '" + selected + "'" + returnGraph
         expand.checked = false;
         console.log(3)
     }
@@ -95,12 +90,6 @@ function createQuery() {
 }
 
 function draw() {
-    //   Project inbetween
-    // 
-    //const search = "MATCH (a) WHERE a.name = '" + document.getElementById('searchBar').value + "' OR  a.id = '" + document.getElementById('searchBar').value +  "' OPTIONAL MATCH (a)-[b: WORKED_ON] - (p)- [o: WORKED_ON] - (c) OPTIONAL MATCH (c)-[l: WORKED_ON] - (k)- [q: WORKED_ON] - (e) WHERE NOT e = a RETURN * "
-    //Just relationships for scopus db
-    //const search = "MATCH (a) WHERE a.name = '" + document.getElementById('searchBar').value + "' OR  a.id = '" + document.getElementById('searchBar').value + "' OPTIONAL MATCH (a)-[b: WORKED_WITH] - (c) OPTIONAL MATCH (c)-[d: WORKED_WITH] - (e) WHERE NOT e = a RETURN * "
-    //Just relationships for test
     var search = createQuery()
     const config = {
         containerId: "viz",
@@ -131,15 +120,6 @@ function draw() {
             },
             physics: {
                 enabled: true,
-                // barnesHut: {
-                //     gravitationalConstant: -500000,
-                //     centralGravity: 1,
-                //     springLength: 100000,
-                //     springConstant: 4,
-                //     damping: 0.9,
-                //     avoidOverlap: 0.9
-                // },
-                //solver: 'barnesHut',
                 solver: 'forceAtlas2Based',
                 forceAtlas2Based: {
                     theta: 0.5,
@@ -171,8 +151,6 @@ function draw() {
             }
         },
         initialCypher: search
-        //Use to return all relationships and researchers
-        //initialCypher: "MATCH (n:Researcher), (j)-[r:WORKED_WITH]->(m) RETURN *"
     };
     console.log(search);
     console.log("searched!");
@@ -209,21 +187,6 @@ function draw() {
         }
     });
 
-    neoViz.registerOnEvent("clickEdge", (properties) => {
-        const edgeInformation = properties.edge;
-        if (edgeInformation.raw.type == "WORKED_ON") {
-            hideAll();
-            relationShip_WORKED_ON.style.display = 'block';
-            r.innerHTML = edgeInformation.from;
-            projectName.innerHTML = edgeInformation.to;
-        }
-        else if (edgeInformation.raw.type == "WORKED_WITH") {
-            hideAll();
-            relationShip_WORKED_WITH.style.display = 'block';
-            r1.innerHTML = edgeInformation.from;
-            r2.innerHTML = edgeInformation.to;
-            workedWith.innerHTML = edgeInformation.value;
-        }
-    });
-}document.getElementById("password_submit").addEventListener("submit", getPassword);
-document.getElementById("port_submit").addEventListener("submit", getPort);
+    //document.getElementById("password_submit").addEventListener("submit", getPassword);
+    //document.getElementById("port_submit").addEventListener("submit", getPort);
+}
