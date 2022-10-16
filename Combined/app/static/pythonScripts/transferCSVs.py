@@ -31,5 +31,3 @@ def transfer_csvs(files):
     elif files == 2:
         clear_db_file('\\add')
         move_csvs('\\add\\')
-        
-transfer_csvs(1)

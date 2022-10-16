@@ -147,5 +147,3 @@ def create_db():
     
     session.close()
     return 1
-
-create_db()
