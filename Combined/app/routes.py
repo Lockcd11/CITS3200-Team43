@@ -54,7 +54,7 @@ def tool():
     if form1.validate_on_submit():
         expand(form1.researcher.data)
         update_db()
-    return render_template('tool.html')
+    return render_template('tool.html', form1=form1)
 
 def csveditor(mode, id, senior=0): # Accepts 0 for update, 1 for add, 2 for removal. if senior flag set to one, given senior researcher treatment
     if mode == 1:
