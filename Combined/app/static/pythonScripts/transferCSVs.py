@@ -1,6 +1,6 @@
 from neo4j import GraphDatabase
 import os
-from fileGrab import get_import_file_location
+from app.static.pythonScripts.fileGrab import get_import_file_location
 import shutil
 
 def clear_db_file(location):
@@ -18,11 +18,11 @@ def clear_db_file(location):
     return 1
 
 def move_csvs(location):
-    filename = [f for f in os.listdir('current_csvs' + location) if '.csv' in f.lower()]
+    filename = [f for f in os.listdir('app\\static\\pythonScripts\\current_csvs' + location) if '.csv' in f.lower()]
     for file in filename:
-        file_path = os.path.join('current_csvs' + location, file)
+        file_path = os.path.join('app\\static\\pythonScripts\\current_csvs' + location, file)
         new_path = get_import_file_location() + location + file
-        shutil.copyfile('current_csvs' + location + file, new_path)
+        shutil.copyfile('app\\static\\pythonScripts\\current_csvs' + location + file, new_path)
         
 def transfer_csvs(files):
     if files == 1:

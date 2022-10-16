@@ -1,7 +1,7 @@
 from neo4j import GraphDatabase
 import os
 import shutil
-from transferCSVs import transfer_csvs
+from app.static.pythonScripts.transferCSVs import transfer_csvs
 
 def clear_db(tx):
     return tx.run("""
@@ -72,10 +72,12 @@ def clear3(tx):
 
 def create_worked_on(tx):
     return tx.run("""
-        LOAD CSV WITH HEADERS FROM 'file:///relationships.csv' AS row
-         MATCH (a:Researcher{id: row.author_id})
-         MATCH (b:Project{id:row.publication_eid})
-         MERGE (a)-[r:WORKED_ON]->(b)
+            LOAD CSV WITH HEADERS FROM 'file:///relationships.csv' AS row
+             MATCH
+             (a:Researcher),
+             (b:Project) 
+             WHERE row.author_id = a.id AND row.publication_eid = b.id
+             CREATE (a)-[r:WORKED_ON]->(b)
             """)
 
 def create_worked_with(tx):
@@ -107,7 +109,7 @@ def create_db():
     print("\nFiles Transfered\n")
     
     db_details = {'db': None, 'password': None, 'port': None}
-    with open("db_details.txt", 'r') as f:
+    with open("app/static/pythonScripts/db_details.txt", 'r') as f:
         for i in f.readlines():
             info = i.strip().split(',')
             db_details[info[0]] = info[1]

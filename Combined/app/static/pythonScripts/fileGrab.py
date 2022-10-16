@@ -11,7 +11,7 @@ def path(tx):
 def get_import_file_location():
     
     db_details = {'db': None, 'password': None, 'port': None}
-    with open("db_details.txt", 'r') as f:
+    with open("app/static/pythonScripts/db_details.txt", 'r') as f:
         for i in f.readlines():
             info = i.strip().split(',')
             db_details[info[0]] = info[1]
@@ -23,13 +23,6 @@ def get_import_file_location():
     result = session.read_transaction(path)
     
     value = result[0][0] + "\import"
-    
-    if os.path.exists("filePath.txt"):
-        os.remove("filePath.txt")
-    
-    #text_file = open("filePath.txt", "w")
-    #text_file.write(value)
-    #text_file.close()
 
     session.close()
     return value
