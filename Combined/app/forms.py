@@ -14,4 +14,4 @@ class ChangeAPIKey(FlaskForm):
 
 class ExpandForm(FlaskForm):
     researcher = IntegerField('Scopus Id', validators=[DataRequired()])
-    submit = SubmitField('Update - May take significant time')
+    submit = SubmitField('Expand')
