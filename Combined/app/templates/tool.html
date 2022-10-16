@@ -31,7 +31,7 @@
         <div class="graphingtool">
             <div class="left" id="viz"></div>
             <div class="right">
-                <table id="researcher" class="graphtable" hidden>
+                <table id="r" class="graphtable" hidden>
                     <tr>
                         <td>Name</td>
                         <td id="researcherName"></td>
@@ -94,7 +94,7 @@
                     <label for="projectExpansion"> Expand </label>
                     <button onclick="draw()" class="loadbutton"> Search </button>
                 </div>
-                <div>
+                <div id="download" hidden>
                     <h4 class="text-dark">Expand Researcher</h4>
                     <form class="mb-5 border border-dark rounded shadow p-3" action="" method="post">
                         {{ form1.hidden_tag() }}
