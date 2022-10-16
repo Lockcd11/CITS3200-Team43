@@ -57,7 +57,7 @@
                     <tr>
                         <td>Title</td>
                         <td id="projectTitle"></td>
-                    </tr> 
+                    </tr>
                     <tr>
                         <td>Co-Authors</td>
                         <td id="projectAuthors"></td>
@@ -79,38 +79,6 @@
                         <td><a href="url" id="projectLink" target="_blank" rel="noopener noreferrer"></a></td>
                     </tr>
                 </table>
-                <table id="relationShip_WORKED_WITH" class="graphtable" hidden>
-                    <tr>
-                        <td>Relationship</td>
-                        <td>Worked With</td>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td id="r1"></td>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td id="r2"></td>
-                    </tr>
-                    <tr>
-                        <td>Times worked together</td>
-                        <td id="workedWith"></td>
-                    </tr>
-                </table>
-                <table id="relationShip_WORKED_ON" class="graphtable" hidden>
-                    <tr>
-                        <td>Relationship</td>
-                        <td>Worked On</td>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td id="r"></td>
-                    </tr>
-                    <tr>
-                        <td>Name of Project</td>
-                        <td id="projectName"></td>
-                    </tr>
-                </table>
                 <div id="expand" hidden>
                     <a id="res" hidden></a>
                     <input type="checkbox" id="expandPublications">
@@ -126,9 +94,25 @@
                     <label for="projectExpansion"> Expand </label>
                     <button onclick="draw()" class="loadbutton"> Search </button>
                 </div>
+                <div>
+                    <h4 class="text-dark">Expand Researcher</h4>
+                    <form class="mb-5 border border-dark rounded shadow p-3" action="" method="post">
+                        {{ form1.hidden_tag() }}
+                        <div class="mb-3">
+                            {{ form1.researcher.label }}<br>
+                            {{ form1.researcher(size=32) }}
+                            <!--<label for="scopusIDForm" class="form-label text-dark">Scopus ID</label>
+                <input type="number" class="form-control" id="scopusIDForm">
+                -->
+                        </div>
+                        {{ form1.submit() }}
+                        <!--<button id="addKeyBtn" type="submit" class="btn btn-primary-c">Submit</button>
+            -->
+                    </form>
+                </div>
             </div>
         </div>
-
+    </div>
     <!-- FOOTER -->
     <div class="footer">
         <p class="groupnames">&copy; Cam, Harry, Kane, Adam, Callum, Maaz</p>
