@@ -225,4 +225,5 @@ function draw() {
             workedWith.innerHTML = edgeInformation.value;
         }
     });
-}
+}document.getElementById("password_submit").addEventListener("submit", getPassword);
+document.getElementById("port_submit").addEventListener("submit", getPort);
