@@ -126,22 +126,6 @@
                     <label for="projectExpansion"> Expand </label>
                     <button onclick="draw()" class="loadbutton"> Search </button>
                 </div>
-                <div>
-                    <h4 class="text-dark">Expand Researcher</h4>
-                    <form class="mb-5 border border-dark rounded shadow p-3" action="" method="post">
-                        {{ form1.hidden_tag() }}
-                        <div class="mb-3">
-                            {{ form1.researcher.label }}<br>
-                            {{ form1.researcher(size=32) }}
-                            <!--<label for="scopusIDForm" class="form-label text-dark">Scopus ID</label>
-                            <input type="number" class="form-control" id="scopusIDForm">
-                            -->
-                        </div>
-                        {{ form1.submit() }}
-                        <!--<button id="addKeyBtn" type="submit" class="btn btn-primary-c">Submit</button>
-                        -->
-                    </form>
-                </div>
             </div>
         </div>
 
