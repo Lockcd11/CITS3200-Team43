@@ -178,12 +178,7 @@ def csvmaker(senior=0):
                 researchers_fullinfo.append([researcherFile.identifier, researcherFile.given_name+' '+researcherFile.surname, 'https://www.scopus.com/authid/detail.uri?authorId='+str(researcherFile.identifier),researcherFile.coauthor_count, depth])     
                 researchers.add(researcherFile.identifier)
                 thisAuthorPublications = pd.DataFrame(researcherFile.get_document_eids())
-                if researcherFile.coauthor_count < 250:
-                    for x in thisAuthorPublications[0]:
-                        if x not in publications:
-                            publicationQueue.append(x)
-                        publications.add(x)
-                else:
+                for x in thisAuthorPublications[0]:         
                     publications.add(x)
                     relationships.add(x, researcherFile.identifier)
             except:
