@@ -1,3 +1,0 @@
-db,neo4j
-password,group43
-port,bolt://localhost:7687
