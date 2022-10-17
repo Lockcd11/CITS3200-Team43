@@ -188,7 +188,7 @@ def csvmaker(senior=0):
                     relationships.add(x, researcherFile.identifier)
             except:
                 researcherErrors.append(str(thisResearcher))
-                for each in coreTeam:
+                for each in seniorTeam:
                     if each[0]==thisResearcher:
                         coreTeam.remove(each)
         while len(publicationQueue)!=0:
