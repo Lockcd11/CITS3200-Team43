@@ -22,6 +22,9 @@ function hideAll() {
 }
 
 function layerSoughter(layer) {
+    if (layer == 4) {
+        return ("Senior Core Researcher")
+    }
     if (layer == 3) {
         return ("Core Researcher")
     }
@@ -42,8 +45,8 @@ function newDraw() {
 }
 
 function createQuery() {
-    const base = "MATCH (a:CoreResearcher) WHERE a.name = '" + document.getElementById('searchBar').value + "' OR  a.id = '" + document.getElementById('searchBar').value + "'"
-    const firstDegree = " OPTIONAL MATCH (a:CoreResearcher)-[b: WORKED_WITH] - (c:Researcher)"
+    const base = "MATCH (a:Researcher) WHERE a.name = '" + document.getElementById('searchBar').value + "' OR  a.id = '" + document.getElementById('searchBar').value + "'"
+    const firstDegree = " OPTIONAL MATCH (a:Researcher)-[b: WORKED_WITH] - (c:Researcher)"
     const returnGraph = " RETURN * "
     expandProject = "";
     expandResearcher = "";
@@ -165,9 +168,7 @@ function draw() {
             hideAll();
             r.style.display = 'block';
             expand.style.display = 'block';
-            if (labels.includes("SecondDegree")){
-                download.style.display = 'block';
-            }
+            download.style.display = 'block';
             scopusID.innerHTML = nodeInformation.properties.id;
             researcherName.innerHTML = nodeInformation.properties.name;
             layerOfKnown.innerHTML = layerSoughter(nodeInformation.properties.layerOfKnown);
