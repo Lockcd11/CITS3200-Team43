@@ -1,14 +1,14 @@
 /* the 'all' selector, setting default font as Arial */
 * {
     font-family: Arial
-}
-
-/* START OF NAV BAR FORMATTING */
-/* Navigation Bar at top of page, essentially a list of links converted into buttons and layed out horizontally */
-.navbar { 
+  }
+  
+  /* START OF NAV BAR FORMATTING */
+  /* Navigation Bar at top of page, essentially a list of links converted into buttons and layed out horizontally */
+  .navbar { 
     list-style-type: none;
-    margin: 0;
     padding: 0px;
+    margin: 0px;
     overflow: hidden;
     background-color: rgb(36, 36, 36);
     position: absolute;
@@ -16,38 +16,44 @@
     top: 0px;
     left: 0px;
     right: 0px;
-    height: 58px; 
-}
-
-/* aligns the regular nav page elements to the right of the screen */
-li { float: right; }
-
-/* hovering over the list will highlight the corresponding element */
-li:hover { background-color: rgb(95, 95, 95); }
-
-/* aligns the title and logo to the left of the screen*/
-.navlogo { float: left; margin-left: 10px}
-
-/* specifics for the page title */
-.navtitle { float: left; font-weight: bold; font-size: 19px; } 
-.navtitle:hover { background-color: transparent; }
-/* specifics for the current page */
-.currentpage { font-weight: bold } 
-.currentpage:hover { background-color: transparent;}
-
-/* pads and colours the nav list elements */
-li a {
+    height: 65px; 
+    font-size: 15px;
+  }
+  
+  /* aligns the regular nav page elements to the right of the screen */
+  li { float: right; }
+  
+  /* hovering over the list will highlight the corresponding element */
+  li:hover { background-color: rgb(95, 95, 95); }
+  
+  /* aligns the title and logo to the left of the screen*/
+  .navlogo { float: left; margin-left: 16px; }
+  .navlogo:hover { background-color: transparent; }
+  
+  /* specifics for the page title */
+  .navtitle { float: left; font-size: 20px; } 
+  .navtitle:hover { background-color: transparent; }
+  /* specifics for the current page */
+  .currentpage { font-weight: bold; } 
+  .currentpage:hover { background-color: rgb(95, 95, 95); }
+  
+  /* pads and colours the nav list elements */
+  li a {
     display: block;
-    color: rgb(218, 214, 214);
+    color: rgb(255, 255, 255);
     text-align: center;
-    padding: 20px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 30px;
+    padding-right: 30px;
     text-decoration: none;
-}
-/* END OF NAV BAR FORMATTING */
+  }
+  /* END OF NAV BAR FORMATTING */
 
 /* START OF PAGE CONTENT FORMATTING */
 #search {
-    margin-top: 70px;
+    position: absolute;
+    margin-top: 72px;
     margin-left: 8px;
     display: block;
     user-select: none;
@@ -72,9 +78,9 @@ li a {
 }
 
 .bigcheckbox {
-    position: absolute;
-    top: 69px;
-    left: 870px;
+    position: relative;
+    left: 250px;
+    top: 240px;
     height: 20px;
     width: 20px;
     border-radius: 4px;
@@ -92,9 +98,10 @@ li a {
 
 /* The canvas for displaying the network graph */
 #viz {
-    height: 530px;
-    width: 70%;
-    margin-top: 8px;
+    position: relative;
+    height: 70vh;
+    width: 70vw;
+    margin-top: 108px;
     margin-left: 8px;
     margin-right: 8px;
     border: solid 1px rgb(146, 144, 144);

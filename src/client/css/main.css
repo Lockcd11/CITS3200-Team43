@@ -1,85 +1,69 @@
-
-:root {
-    --primary: rgb(230, 233, 233);
-    --secondary: rgb(58, 58, 58);
+/* the 'all' selector, setting default font as Arial */
+* {
+  font-family: Arial
 }
 
-/* Scrollbar Styling */
-/* width */
-::-webkit-scrollbar {
-    width: 15px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #b7b7b7;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: var(--secondary);
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-
-.text-primary-c {
-    color: var(--primary);
-}
-
-.d-100 {
-    height: 100vh;
-}
-
-.btn-primary-c {
-  background-color: var(--secondary) !important;
-  color: var(--primary) !important;
-}
-/* 
-.hero-img {
-    background-image: url("../img/hero-bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-} */
-
-/* .highlight-nav {
-  border: solid 1px #000 !important;
-  border-radius: 10px;
-  background-color: var(--primary);
-} */
-
-.highlight-nav:hover {
-  border: solid 1px #000 !important;
-  border-radius: 10px;
-  background-color: var(--secondary);
-}
-
-#viz {
-  width: 98%;
-  height: 500px;
-  background-color: var(--primary);
-  border-radius: 10px;
-  border: 1px var(--secondary) solid;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#search {
-  width: 98%;
-  margin-left: auto;
-  margin-right: auto
-}
-
-.footer {
+/* START OF NAV BAR FORMATTING */
+/* Navigation Bar at top of page, essentially a list of links converted into buttons and layed out horizontally */
+.navbar { 
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  background-color: rgb(36, 36, 36);
   position: absolute;
-  bottom: 15px;
-  width: 100%
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 65px; 
+  font-size: 15px;
 }
 
-#expand {
-  background-color: blue;
+/* aligns the regular nav page elements to the right of the screen */
+li { float: left; }
+
+/* hovering over the list will highlight the corresponding element */
+/* li:hover { background-color: rgb(95, 95, 95); } */
+
+/* aligns the title and logo to the left of the screen*/
+/* .navlogo { float: left; margin-left: 16px; } */
+
+/* specifics for the page title */
+/* .navtitle { float: left; font-size: 20px; } 
+.navtitle:hover { background-color: transparent; } */
+/* specifics for the current page */
+/* .currentpage { font-weight: bold; margin-right: 16px; } 
+.currentpage:hover { background-color: transparent;} */
+
+/* pads and colours the nav list elements */
+li a {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding-top: 24px;
+  padding-bottom: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-decoration: none;
+}
+/* END OF NAV BAR FORMATTING */
+
+/* START OF FOOTER FORMATTING */
+.footer {
+    margin-top: 8px;
+    background-color: rgb(36, 36, 36);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 3px;
 }
 
+p {
+    color: rgb(85, 84, 84);
+    font-size: 14px;
+}
+/* END OF FOOTER FORMATTING */
