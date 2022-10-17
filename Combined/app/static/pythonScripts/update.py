@@ -28,6 +28,13 @@ def update_researcher(tx):
         })
             """)
 
+def senior_researcher(tx):
+    return tx.run("""
+        MATCH (n:Researcher)
+            WHERE n.layerOfKnown = "4"
+                SET n:SeniorCoreResearcher
+            """)
+
 def core_researcher(tx):
     return tx.run("""
         MATCH (n:Researcher)
@@ -114,6 +121,8 @@ def update_db():
     print("Project created\n")
     researcher = session.write_transaction(update_researcher)
     print("Researcher created\n")
+    senior = session.write_transaction(senior_researcher)
+    print("Senior done\n")
     core = session.write_transaction(core_researcher)
     print("Core done\n")
     first = session.write_transaction(first_degree)
@@ -135,6 +144,7 @@ def update_db():
     worked_with = session.write_transaction(update_worked_with)
     print("Worked with created\n") 
     
+    print("Database Updated\n")
     session.close()
     
     return 1
