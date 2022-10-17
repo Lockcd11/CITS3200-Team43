@@ -166,26 +166,26 @@ def csvmaker(senior=0):
     publications = SortedSet()
     pubs_fullinfo = []
     relationships = SortedSet()
-    for x in seniorTeam
+    for x in seniorTeam:
         researcherQueue.append(x)
     depth=4
     while len(researcherQueue)!=0:
-            print(len(researcherQueue))
-            thisResearcher=researcherQueue[0]
-            researcherQueue.pop(0)
-            try:
-                researcherFile = AuthorRetrieval(thisResearcher)
-                researchers_fullinfo.append([researcherFile.identifier, researcherFile.given_name+' '+researcherFile.surname, 'https://www.scopus.com/authid/detail.uri?authorId='+str(researcherFile.identifier),researcherFile.coauthor_count, depth])     
-                researchers.add(researcherFile.identifier)
-                thisAuthorPublications = pd.DataFrame(researcherFile.get_document_eids())
-                for x in thisAuthorPublications[0]:         
-                    publications.add(x)
-                    relationships.add(x, researcherFile.identifier)
-            except:
-                researcherErrors.append(str(thisResearcher))
-                for each in seniorTeam:
-                    if each[0]==thisResearcher:
-                        coreTeam.remove(each)
+        print(len(researcherQueue))
+        thisResearcher=researcherQueue[0]
+        researcherQueue.pop(0)
+        try:
+            researcherFile = AuthorRetrieval(thisResearcher)
+            researchers_fullinfo.append([researcherFile.identifier, researcherFile.given_name+' '+researcherFile.surname, 'https://www.scopus.com/authid/detail.uri?authorId='+str(researcherFile.identifier),researcherFile.coauthor_count, depth])     
+            researchers.add(researcherFile.identifier)
+            thisAuthorPublications = pd.DataFrame(researcherFile.get_document_eids())
+            for x in thisAuthorPublications[0]:         
+                publications.add(x)
+                relationships.add(x, researcherFile.identifier)
+        except:
+            researcherErrors.append(str(thisResearcher))
+            for each in seniorTeam:
+                if each[0]==thisResearcher:
+                    coreTeam.remove(each)
         while len(publicationQueue)!=0:
             thisPublication=publicationQueue[0]
             publicationQueue.pop(0)
