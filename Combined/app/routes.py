@@ -1,13 +1,17 @@
 from flask import render_template, flash
 from app import app
 from app.forms import AddResearcherForm, ChangeAPIKey, ExpandForm
+import os
+
+os.environ['PYB_CONFIG_FILE'] = "pybconfig.ini"
+
+import pybliometrics
 from pybliometrics.scopus.utils import config
 from pybliometrics.scopus import AuthorRetrieval
 from pybliometrics.scopus import AbstractRetrieval
 from sortedcontainers import SortedSet
 import pandas as pd
 import csv
-import os
 from app.static.pythonScripts.inisial import create_db
 from app.static.pythonScripts.update import update_db
 
