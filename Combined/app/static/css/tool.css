@@ -122,12 +122,13 @@
 .graphingtool { display: flex } 
 
 .graphtable {
-    margin-top: 8px;
+    margin-top: 108px;
     position: relative;
     text-align: left;
     font-size: 14px;
     border: solid 1px rgb(36, 36, 36);
     border-radius: 4px;
+    width: 27vw;
 }
 
 td, th {
@@ -136,8 +137,9 @@ td, th {
     padding: 10px;
 }
 
-tr:nth-child(odd) {background-color: #f2f2f2;}
+tr:nth-child(odd) {background-color: #f2f2f2; }
 #link { font-size: 10px }
+#projectLink { font-size: 10px }
 
 #expandPublications {
     position: relative;
@@ -158,6 +160,17 @@ tr:nth-child(odd) {background-color: #f2f2f2;}
 }
 
 #expandResearcher {
+    position: relative;
+    top: 6px;
+    left: -4px;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    background-color: rgb(245, 243, 243);
+    border: solid 1px black;
+}
+
+#projectExpansion {
     position: relative;
     top: 6px;
     left: -4px;

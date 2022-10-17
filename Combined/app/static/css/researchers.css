@@ -69,15 +69,23 @@ li a {
 /* END OF NAV BAR FORMATTING */
 
 .form-class {
+    background-color: rgb(232, 232, 236);
+    color:rgb(36, 36, 36);
+    border: 1px solid rgb(146, 144, 144);
+    border-radius: 4px;
+    padding: 16px; 
+}
 
-  border: 2px solid #000;
-  border-radius: 5px;
-  padding: 1em 1em;
-
+h4 {
+    color: rgb(36, 36, 36);
+    font-size: 20px;
+    margin-bottom: 8px;
 }
 
 .container {
-  margin: 4em;
+  margin-left: 16px;
+  margin-top: 24px;
+  margin-right: 16px;
 }
 
 .pagecontent {
@@ -89,44 +97,46 @@ ul {
 }
 
 #submit {
-  background-color: rgb(77, 77, 77);
-  border-radius: 4px;
-  border: none;
-  padding: 10px;
-  transition-duration: 0.3s;
-  margin-top: 10px;
-  color: whitesmoke;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgb(85, 84, 84);
+    color:rgb(245, 241, 241);
+    border-radius: 4px;
+    border: none;
 }
 
 label {
-  font-weight: bold;
+  margin-right: 8px;
+  padding-right: 16px;
+  color:rgb(36, 36, 36);
+}
+
+label:hover {
+    background-color: transparent;
 }
 
 #APIKey {
   width: 30%;
-}
-
-h4 {
-  font-size: larger;
+  height: 24px;
+  margin-top: 4px;
+  font-size: 14px;
 }
 
 #researcher {
-  width: 30%;
+    width: 30%;
+    height: 24px;
+    margin-top: 4px;
+    font-size: 14px;
 }
 
 #submit:hover {
-  background-color: rgb(22, 22, 22);
-  transition-duration: 0.3s;
-  color: white;
-  border-radius: 4px;
-  border: none;
-  padding: 10px;
+    background-color: rgb(146, 144, 144);
+    transition-duration: 0.3s;
+    color: white;
+    border-radius: 4px;
+    border: none;
 }
 
-/* PAGE CONTENT */
-input {
-    width: 100px;
-}
 /* START OF FOOTER FORMATTING */
 .footer {
     margin-top: 8px;
