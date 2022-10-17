@@ -170,7 +170,6 @@ def csvmaker(senior=0):
         researcherQueue.append(x)
     depth=4
     while len(researcherQueue)!=0:
-        print(len(researcherQueue))
         thisResearcher=researcherQueue[0]
         researcherQueue.pop(0)
         try:
@@ -189,7 +188,6 @@ def csvmaker(senior=0):
         while len(publicationQueue)!=0:
             thisPublication=publicationQueue[0]
             publicationQueue.pop(0)
-            print(len(publicationQueue))
             pubretrieval=AbstractRetrieval(thisPublication)
             thisPublicationAuthors = pd.DataFrame(pubretrieval.authors)
             pubs_fullinfo.append([pubretrieval.identifier, pubretrieval.title, len(thisPublicationAuthors.iloc[:,0]), ("none" if pubretrieval.subtypedescription is None else pubretrieval.subtypedescription), ("none" if pubretrieval.publisher is None else pubretrieval.publisher), pubretrieval.scopus_link])
@@ -223,7 +221,6 @@ def csvmaker(senior=0):
     depth=3
     while depth > 1:
         while len(researcherQueue)!=0:
-            print(len(researcherQueue))
             thisResearcher=researcherQueue[0]
             researcherQueue.pop(0)
             try:
@@ -247,7 +244,6 @@ def csvmaker(senior=0):
         while len(publicationQueue)!=0:
             thisPublication=publicationQueue[0]
             publicationQueue.pop(0)
-            print(len(publicationQueue))
             pubretrieval=AbstractRetrieval(thisPublication)
             thisPublicationAuthors = pd.DataFrame(pubretrieval.authors)
             pubs_fullinfo.append([pubretrieval.identifier, pubretrieval.title, len(thisPublicationAuthors.iloc[:,0]), ("none" if pubretrieval.subtypedescription is None else pubretrieval.subtypedescription), ("none" if pubretrieval.publisher is None else pubretrieval.publisher), pubretrieval.scopus_link])
@@ -275,7 +271,6 @@ def csvmaker(senior=0):
                             researcherErrors.append(x)
                     author+=1
         depth=depth-1
-        print('depthup')
     with open('relationships.csv', 'w', newline='') as out:
         csv_out=csv.writer(out)
         csv_out.writerow(['publication_eid', 'author_id'])
@@ -319,7 +314,6 @@ def expand(researcher):
     researchers_fullinfo = []
     researcherErrors=[]
     while len(researcherQueue)!=0:
-        print(len(researcherQueue))
         thisResearcher=researcherQueue[0]
         researcherQueue.pop(0)
         try:
@@ -334,7 +328,6 @@ def expand(researcher):
     while len(publicationQueue)!=0:
         thisPublication=publicationQueue[0]
         publicationQueue.pop(0)
-        print(len(publicationQueue))
         pubretrieval=AbstractRetrieval(thisPublication)
         pubs_fullinfo.append([pubretrieval.identifier, pubretrieval.title, ("none" if pubretrieval.subtypedescription is None else pubretrieval.subtypedescription), ("none" if pubretrieval.publisher is None else pubretrieval.publisher), pubretrieval.scopus_link])
         thisPublicationAuthors = pd.DataFrame(pubretrieval.authors)
