@@ -31,48 +31,41 @@
     {% endif %}
     {% endwith %}
     </hr>
-    <div class="container">
-        <div class="pagecontent">
-            <!--Table Display -->
-            <div>
-                <h4>Edit Researchers</h4>
-                <div class="form-class">
-                    <form class="researcher-form" action="" method="post">
-                        {{ form1.hidden_tag() }}
-                        <div>
-                            {{ form1.researcher.label }}<br>
-                            {{ form1.researcher(size=32) }}
-                            <!--<label for="scopusIDForm" class="form-label text-dark">Scopus ID</label>
-                            <input type="number" class="form-control" id="scopusIDForm">
-                            -->
-                        </div>
-                        {{ form1.addremoveupdate() }}{{ form1.addremoveupdate.Add }}{{ form1.addremoveupdate.Remove }}{{
-                        form1.addremoveupdate.Update }}
-                        {{ form1.senior() }}{{ form1.senior.label }}
-                        <span class="form-btn">{{ form1.submit() }}</span>
-                        <!--<button id="addKeyBtn" type="submit" class="btn btn-primary-c">Submit</button>
-                        -->
-                    </form>
+    <div class="pagecontent">
+        <!--Table Display -->
+        <div>
+            <h4>Edit Researchers</h4>
+            <form class="addresearcher" action="" method="post">
+                {{ form1.hidden_tag() }}
+                <div>
+                    {{ form1.researcher.label }}<br>
+                    {{ form1.researcher(size=32) }}
+                    <!--<label for="scopusIDForm" class="form-label text-dark">Scopus ID</label>
+                    <input type="number" class="form-control" id="scopusIDForm">
+                    -->
                 </div>
-            </div>
-            <div>
-                <h4>Change Scopus API Key</h4>
-                <div class="form-class">
-                    <form class="mb-5 border border-dark rounded shadow p-3" action="" method="post">
-                        {{ form2.hidden_tag() }}
-                        <div>
-                            {{ form2.APIKey.label }}<br>
-                            {{ form2.APIKey(size=32) }}
-                            <!--<label for="scopusIDForm" class="form-label text-dark">Scopus ID</label>
-                            <input type="number" class="form-control" id="scopusIDForm">
-                            -->
-                        </div>
-                        {{ form2.submit() }}
-                        <!--<button id="addKeyBtn" type="submit" class="btn btn-primary-c">Submit</button>
-                        -->
-                    </form>
+                {{ form1.addremoveupdate() }}{{ form1.addremoveupdate.Add }}{{ form1.addremoveupdate.Remove }}{{ form1.addremoveupdate.Update }}
+                {{ form1.senior() }}{{ form1.senior.label }}
+                {{ form1.submit() }}
+                <!--<button id="addKeyBtn" type="submit" class="btn btn-primary-c">Submit</button>
+                -->
+            </form>
+        </div>
+        <div>
+            <h4>Change Scopus API Key</h4>
+            <form class="changekey" action="" method="post">
+                {{ form2.hidden_tag() }}
+                <div>
+                    {{ form2.APIKey.label }}<br>
+                    {{ form2.APIKey(size=32) }}
+                    <!--<label for="scopusIDForm" class="form-label text-dark">Scopus ID</label>
+                    <input type="number" class="form-control" id="scopusIDForm">
+                    -->
                 </div>
-            </div>
+                {{ form2.submit() }}
+                <!--<button id="addKeyBtn" type="submit" class="btn btn-primary-c">Submit</button>
+                -->
+            </form>
         </div>
     </div>
 
