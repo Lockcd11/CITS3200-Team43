@@ -35,7 +35,10 @@ def researchers():
             csveditor(modeInput, form1.researcher.data, 1)
         if seniorFlag is False and modeInput is not None:
             csveditor(modeInput, form1.researcher.data)
-        csvmaker()
+        if seniorFlag is 1:
+            csvmaker(1)
+        else:
+            csvmaker()
         create_db()
         flash('Researcher added', 'success')
         return render_template('researchers.html', form1=form1, form2=form2)
@@ -134,7 +137,7 @@ def csveditor(mode, id, senior=0): # Accepts 0 for update, 1 for add, 2 for remo
         for x in seniorTeam:
             csv_out.writerow([str(x)])
 
-def csvmaker():
+def csvmaker(senior=0):
     coreTeam=[]
     seniorTeam=[7402517928, 7201664962, 6603302385, 7102860769]
     with open('app/static/pythonScripts/current_csvs/coreteam.csv', 'r', newline='') as csvfile:
@@ -154,7 +157,7 @@ def csvmaker():
                 firstrow+=1
             else:
                 seniorTeam.append(row)
-    depth=3
+    
     researcherQueue = []
     publicationQueue = []
     researchers = SortedSet()
@@ -162,8 +165,66 @@ def csvmaker():
     publications = SortedSet()
     pubs_fullinfo = []
     relationships = SortedSet()
+    for x in seniorTeam
+        researcherQueue.append(x)
+    depth=4
+    while len(researcherQueue)!=0:
+            print(len(researcherQueue))
+            thisResearcher=researcherQueue[0]
+            researcherQueue.pop(0)
+            try:
+                researcherFile = AuthorRetrieval(thisResearcher)
+                researchers_fullinfo.append([researcherFile.identifier, researcherFile.given_name+' '+researcherFile.surname, 'https://www.scopus.com/authid/detail.uri?authorId='+str(researcherFile.identifier),researcherFile.coauthor_count, depth])     
+                researchers.add(researcherFile.identifier)
+                thisAuthorPublications = pd.DataFrame(researcherFile.get_document_eids())
+                if researcherFile.coauthor_count < 250:
+                    for x in thisAuthorPublications[0]:
+                        if x not in publications:
+                            publicationQueue.append(x)
+                        publications.add(x)
+                else:
+                    publications.add(x)
+                    relationships.add(x, researcherFile.identifier)
+            except:
+                researcherErrors.append(str(thisResearcher))
+                for each in coreTeam:
+                    if each[0]==thisResearcher:
+                        coreTeam.remove(each)
+        while len(publicationQueue)!=0:
+            thisPublication=publicationQueue[0]
+            publicationQueue.pop(0)
+            print(len(publicationQueue))
+            pubretrieval=AbstractRetrieval(thisPublication)
+            thisPublicationAuthors = pd.DataFrame(pubretrieval.authors)
+            pubs_fullinfo.append([pubretrieval.identifier, pubretrieval.title, len(thisPublicationAuthors.iloc[:,0]), ("none" if pubretrieval.subtypedescription is None else pubretrieval.subtypedescription), ("none" if pubretrieval.publisher is None else pubretrieval.publisher), pubretrieval.scopus_link])
+            if len(thisPublicationAuthors.iloc[:,0])<24:
+                author=0
+                for x in thisPublicationAuthors.iloc[:,0]:
+                    relationships.add((pubretrieval.identifier, x))
+                    if depth==4 and x not in researchers:
+                        if x not in coreTeam:
+                            try:
+                                researchers_fullinfo.append([x, thisPublicationAuthors.iloc[:,3][author]+' '+thisPublicationAuthors.iloc[:,2][author],'https://www.scopus.com/authid/detail.uri?authorId='+str(x),len(thisPublicationAuthors)-1 ,depth-2])
+                            except:
+                                researcherErrors.append(x)
+                    if x not in researchers:
+                        researcherQueue.append(x)
+                    researchers.add(x)
+                    author+=1
+            else:
+                author=0
+                for x in thisPublicationAuthors.iloc[:,0]:
+                    relationships.add((pubretrieval.identifier, x))
+                    if depth==4 and x not in researchers:
+                        if x not in coreTeam:
+                            try:
+                                researchers_fullinfo.append([x, thisPublicationAuthors.iloc[:,3][author]+' '+thisPublicationAuthors.iloc[:,2][author],'https://www.scopus.com/authid/detail.uri?authorId='+str(x),len(thisPublicationAuthors)-1 ,depth-1])
+                            except:
+                                researcherErrors.append(x)
+                    author+=1
     for x in coreTeam:
-        researcherQueue.append(x[0])
+        researcherQueue.append(x[0])    
+    depth=3
     while depth > 1:
         while len(researcherQueue)!=0:
             print(len(researcherQueue))
