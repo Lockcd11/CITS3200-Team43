@@ -3,9 +3,9 @@
     font-family: Arial
   }
   
-  /* START OF NAV BAR FORMATTING */
-  /* Navigation Bar at top of page, essentially a list of links converted into buttons and layed out horizontally */
-  .navbar { 
+/* START OF NAV BAR FORMATTING */
+/* Navigation Bar at top of page, essentially a list of links converted into buttons and layed out horizontally */
+.navbar { 
     list-style-type: none;
     padding: 0px;
     margin: 0px;
@@ -18,27 +18,27 @@
     right: 0px;
     height: 65px; 
     font-size: 15px;    
-  }
-  
-  /* aligns the regular nav page elements to the right of the screen */
-  li { float: right; }
-  
-  /* hovering over the list will highlight the corresponding element */
-  li:hover { background-color: rgb(95, 95, 95); }
-  
-  /* aligns the title and logo to the left of the screen*/
-  .navlogo { float: left; margin-left: 16px; }
-  .navlogo:hover { background-color: transparent; }
-  
-  /* specifics for the page title */
-  .navtitle { float: left; font-size: 20px; } 
-  .navtitle:hover { background-color: transparent; }
-  /* specifics for the current page */
-  .currentpage { font-weight: bold; } 
-  .currentpage:hover { background-color: rgb(95, 95, 95); }
-  
-  /* pads and colours the nav list elements */
-  li a {
+}
+
+/* aligns the regular nav page elements to the right of the screen */
+li { float: right; }
+
+/* hovering over the list will highlight the corresponding element */
+li:hover { background-color: rgb(95, 95, 95); }
+
+/* aligns the title and logo to the left of the screen*/
+.navlogo { float: left; margin-left: 16px; }
+.navlogo:hover { background-color: transparent; }
+
+/* specifics for the page title */
+.navtitle { float: left; font-size: 20px; } 
+.navtitle:hover { background-color: transparent; }
+/* specifics for the current page */
+.currentpage { font-weight: bold; } 
+.currentpage:hover { background-color: rgb(95, 95, 95); }
+
+/* pads and colours the nav list elements */
+li a {
     display: block;
     color: rgb(255, 255, 255);
     text-align: center;
@@ -47,29 +47,33 @@
     padding-left: 30px;
     padding-right: 30px;
     text-decoration: none;
-  }
-  /* END OF NAV BAR FORMATTING */
-  
-  /* PAGE CONTENT */
-  input {
-    width: 100px;
-  }
-  /* START OF FOOTER FORMATTING */
-  .footer {
-      margin-top: 8px;
-      background-color: rgb(36, 36, 36);
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      text-align: center;
-      padding-top: 3px;
-  }
-  
-  p {
-      color: rgb(85, 84, 84);
-      font-size: 14px;
-  }
-  /* END OF FOOTER FORMATTING */
-  
+}
+/* END OF NAV BAR FORMATTING */
+
+/* PAGE CONTENT */
+.pagecontent {
+    position: relative;
+    margin-top: 74px;
+}
+
+.addresearcher {
+    border: 1px black;
+}
+/* START OF FOOTER FORMATTING */
+.footer {
+    margin-top: 8px;
+    background-color: rgb(36, 36, 36);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 3px;
+}
+
+p {
+    color: rgb(85, 84, 84);
+    font-size: 14px;
+}
+/* END OF FOOTER FORMATTING */
